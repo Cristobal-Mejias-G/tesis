@@ -1,0 +1,7 @@
+# Resultados {#sec-resultados}
+
+## Análisis descriptivo {#sec-descriptivo}
+
+## Análisis bivariado {#sec-bivariado}
+
+## Modelos de regresión {#sec-modelos}

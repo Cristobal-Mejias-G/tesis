@@ -1,0 +1,67 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Justicia de Mercado en Salud: Un estudio de 30 años en Chile"
+  subtitle: "Seminario de Título"
+  author:
+    - name: Cristóbal Mejías
+      affiliation: Departamento de Sociología, Universidad de Chile
+  date: today                       # o una fecha fija: 2026-11-05
+  date-format: D [de] MMMM [de] YYYY
+  chapters:
+    - index.qmd
+    - 01-introduccion.qmd
+    - 02-antecedentes.qmd
+    - 03-metodologia.qmd
+    - 04-resultados.qmd
+    - 05-discusion.qmd
+    - 06-conclusiones.qmd
+    - referencias.qmd
+  appendices:
+    - apendices/a-materiales.qmd
+
+lang: es
+
+# Citas y bibliografía
+bibliography: input/bib/Tesis.bib
+csl: input/bib/apa.csl
+link-citations: true                # las citas del texto enlazan a la referencia (HTML)
+
+# Tablas y figuras (APA: leyendas arriba) y textos en español
+fig-cap-location: top
+tbl-cap-location: top
+crossref:
+  appendix-title: Anexo
+  appendix-delim: " - "
+
+# Opciones de ejecución comunes a todos los formatos.
+# La visibilidad del código se define por formato, más abajo.
+execute:
+  warning: false
+  message: false
+  freeze: auto                      # no vuelve a ejecutar el código si no cambió
+
+format:
+  html:
+    theme: [litera, assets/tesis.scss]
+    toc: true
+    toc-depth: 3
+    toc-title: "Contenidos"
+    number-sections: true
+    smooth-scroll: true
+    # Código visible, pero plegado: el lector decide si lo abre
+    echo: true
+    code-fold: true
+    code-summary: "Ver código"
+    code-copy: true
+  # Descomentar cuando quieras probar la salida a PDF o Word
+  typst:
+    toc: true
+    number-sections: true
+    echo: false                     # el PDF queda sin código
+  # docx:
+  #   toc: true
+  #   number-sections: true
+  #   echo: false

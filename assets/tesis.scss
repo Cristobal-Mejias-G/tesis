@@ -1,0 +1,151 @@
+/*-- scss:defaults --*/
+
+/* ── Tipografía ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&family=Source+Code+Pro:wght@400;500&display=swap');
+
+$font-family-base:      "Source Sans 3", "Helvetica Neue", Arial, sans-serif !default;
+$font-family-serif:     "Source Serif 4", Georgia, "Times New Roman", serif !default;
+$headings-font-family:  $font-family-base !default;
+$font-family-monospace: "Source Code Pro", "Courier New", monospace !default;
+
+$font-size-base:   1rem  !default;
+$line-height-base: 1.85  !default;
+
+/* ── Paleta (un solo lugar para cambiar los colores) ────── */
+$azul:        #1a3a5c;   /* títulos, bordes fuertes, encabezados de tabla */
+$azul-medio:  #2c5f8a;   /* enlaces, acentos */
+$azul-claro:  #4a7fa5;   /* subtítulo, bordes secundarios */
+$gris-texto:  #2d2d2d;
+$gris-suave:  #666;
+$borde:       #dde3ea;
+$fondo:       #fafafa;
+$fondo-suave: #f0f4f8;   /* zebra de tablas, callouts */
+$fondo-code:  #eef2f7;
+
+$body-bg:           $fondo       !default;
+$body-color:        $gris-texto  !default;
+$link-color:        $azul-medio  !default;
+$link-hover-color:  $azul        !default;
+$headings-color:    $azul        !default;
+$headings-font-weight: 600       !default;
+$code-color:        $azul        !default;
+$code-bg:           $fondo-code  !default;
+$border-color:      $borde       !default;
+
+$h1-font-size: 1.75rem !default;
+$h2-font-size: 1.40rem !default;
+$h3-font-size: 1.15rem !default;
+$h4-font-size: 1.00rem !default;
+
+$toc-color:        $azul-medio !default;
+$toc-active-color: $azul       !default;
+$toc-font-size:    0.88rem     !default;
+
+
+/*-- scss:rules --*/
+
+/* ── Texto corrido: serif y justificado ─────────────────── */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+p, li, blockquote { font-family: $font-family-serif; }
+
+p {
+  text-align: justify;
+  hyphens: auto;          /* usa el idioma del documento (lang: es) para cortar palabras */
+}
+
+/* ── Encabezados ────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.01em;
+  margin: 2rem 0 0.6rem;
+}
+
+h1 { border-bottom: 2px solid $azul;  padding-bottom: 0.35rem; }
+h2 { border-bottom: 1px solid $borde; padding-bottom: 0.2rem; }
+
+/* ── Título de cada capítulo ────────────────────────────── */
+#title-block-header {
+  border-bottom: 3px solid $azul;
+  padding-bottom: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.title    { color: $azul; font-weight: 600; }
+.subtitle { color: $azul-claro; font-size: 1.05rem; }
+.subtitle, .author, .date { font-family: $font-family-base; }
+.author, .date { color: #555; font-size: 0.92rem; }
+
+/* ── Tabla de contenidos ────────────────────────────────── */
+#TOC {
+  border-left: 3px solid $azul-medio;
+  padding-left: 1rem;
+  font-family: $font-family-base;
+  .active { color: $azul; font-weight: 600; }
+}
+
+/* ── Tablas ─────────────────────────────────────────────── */
+table {
+  font-family: $font-family-base;
+  font-size: 0.93rem;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+thead tr { background-color: $azul; color: #fff; }
+thead th { font-weight: 600; letter-spacing: 0.02em; }
+
+tbody tr:nth-child(even) { background-color: $fondo-suave; }
+tbody tr:hover           { background-color: #e4edf5; }
+
+td, th {
+  padding: 0.45rem 0.8rem;
+  border-bottom: 1px solid $borde;
+  vertical-align: top;
+}
+
+/* ── Código ─────────────────────────────────────────────── */
+code {
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  font-size: 0.88em;
+}
+
+pre {
+  background-color: #f4f7fb;
+  border-left: 3px solid $azul-claro;
+  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  font-size: 0.87rem;
+  code { background: transparent; color: inherit; padding: 0; }
+}
+
+/* ── Citas textuales ────────────────────────────────────── */
+blockquote {
+  border-left: 3px solid $azul-claro;
+  padding-left: 1rem;
+  color: #4a5568;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+/* ── Figuras y pies ─────────────────────────────────────── */
+.figure-caption, figcaption {
+  font-family: $font-family-base;
+  font-size: 0.85rem;
+  color: $gris-suave;
+  text-align: center;
+  margin-top: 0.4rem;
+}
+
+/* ── Callouts ───────────────────────────────────────────── */
+.callout {
+  border-left: 4px solid $azul-medio;
+  background-color: $fondo-suave;
+  border-radius: 4px;
+}
+
+/* ── Ancho del contenido ────────────────────────────────── */
+#quarto-document-content { max-width: 780px; }
