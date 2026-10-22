@@ -1,45 +1,15 @@
-# Entorno y caché
-.venv/
-.quarto/
-_book/
-_freeze/
-site_libs/
-*_files/
+# El repositorio solo publica el libro renderizado en docs/ (GitHub Pages).
+# Todo lo demás (capítulos, scripts, datos, notas, PDF y configuración) queda local.
+# Para volver a versionar el proyecto completo, reemplazar este
+# archivo con el contenido de gitignore-proyecto-completo.txt (queda local).
+
+/*
+!/.gitignore
+!/README.md
+!/docs/
+
+# Dentro de docs/ no se publican PDF (derechos de autor)
+/docs/**/*.pdf
+
+/.quarto/
 **/*.quarto_ipynb
-.Rproj.user/
-.Rhistory
-.RData
-.Ruserdata
-.DS_Store
-
-# Datos (licencia y tamaño): solo se versionan las carpetas vacías
-input/data/original/*
-input/data/proc/*
-!input/data/**/.gitkeep
-
-# Resultados regenerables con proc/
-output/tablas/*
-output/figuras/*
-!output/**/.gitkeep
-
-# Derechos de autor
-*.pdf
-
-# Notas, lecturas y herramientas de trabajo
-input/notas/
-proc/herramientas/
-
-# Versiones antiguas y borradores
-input/bib/tesis_OLD.bib
-proc/01proc.R
-proc/01_preparacion_respaldo.R
-proc/code_st1_avance.qmd
-ST1_JMS_revision.*
-criticmarkup.lua
-*.vsix
-
-# Configuración local de herramientas
-.mcp.json
-.luarc.json
-.claude/
-CLAUDE.md

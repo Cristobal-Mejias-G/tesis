@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Metodología – Justicia de Mercado en Salud: Un estudio de 30 años en Chile</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-resultados.html" rel="next">
+<link href="./02-antecedentes.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a78d8428acffc242a42caa02e79d5e34.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a0f9a8dbc37401bc732d244eb483ce3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-metodologia.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metodología</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Justicia de Mercado en Salud: Un estudio de 30 años en Chile</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-introduccion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-antecedentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Antecedentes Conceptuales</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-metodologia.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metodología</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-resultados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Resultados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-discusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discusión</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-conclusiones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusiones</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./apendices/a-materiales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Materiales complementarios</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./apendices/insumo-items-meritocracia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Ítems de meritocracia en la CEP (1999, 2009 y 2019)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./apendices/insumo-na-sueldos-gerente-obrero.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Casos perdidos en la percepción de sueldos del presidente de empresa y del obrero (1999, 2009 y 2019)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenidos</h2>
+   
+  <ul>
+  <li><a href="#sec-datos" id="toc-sec-datos" class="nav-link active" data-scroll-target="#sec-datos"><span class="header-section-number">3.1</span> Datos</a>
+  <ul class="collapse">
+  <li><a href="#sec-olas" id="toc-sec-olas" class="nav-link" data-scroll-target="#sec-olas"><span class="header-section-number">3.1.1</span> Las tres olas</a></li>
+  <li><a href="#sec-recuperacion" id="toc-sec-recuperacion" class="nav-link" data-scroll-target="#sec-recuperacion"><span class="header-section-number">3.1.2</span> Base de datos y recuperación de variables desde la ISSP</a></li>
+  <li><a href="#sec-diseno" id="toc-sec-diseno" class="nav-link" data-scroll-target="#sec-diseno"><span class="header-section-number">3.1.3</span> Diseño muestral y ponderación</a></li>
+  </ul></li>
+  <li><a href="#sec-variables" id="toc-sec-variables" class="nav-link" data-scroll-target="#sec-variables"><span class="header-section-number">3.2</span> Variables</a>
+  <ul class="collapse">
+  <li><a href="#sec-vd" id="toc-sec-vd" class="nav-link" data-scroll-target="#sec-vd"><span class="header-section-number">3.2.1</span> Variable dependiente: justicia de mercado en salud</a></li>
+  <li><a href="#sec-vi" id="toc-sec-vi" class="nav-link" data-scroll-target="#sec-vi"><span class="header-section-number">3.2.2</span> Variables independientes</a></li>
+  <li><a href="#sec-controles" id="toc-sec-controles" class="nav-link" data-scroll-target="#sec-controles"><span class="header-section-number">3.2.3</span> Variables de control</a></li>
+  <li><a href="#sec-meritocracia" id="toc-sec-meritocracia" class="nav-link" data-scroll-target="#sec-meritocracia"><span class="header-section-number">3.2.4</span> Percepción de meritocracia</a></li>
+  <li><a href="#sec-brecha" id="toc-sec-brecha" class="nav-link" data-scroll-target="#sec-brecha"><span class="header-section-number">3.2.5</span> Percepción de brecha salarial</a></li>
+  </ul></li>
+  <li><a href="#sec-muestra" id="toc-sec-muestra" class="nav-link" data-scroll-target="#sec-muestra"><span class="header-section-number">3.3</span> Muestra analítica</a></li>
+  <li><a href="#sec-estrategia" id="toc-sec-estrategia" class="nav-link" data-scroll-target="#sec-estrategia"><span class="header-section-number">3.4</span> Estrategia de análisis</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-metodologia" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metodología</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-datos" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-datos"><span class="header-section-number">3.1</span> Datos</h2>
+<section id="sec-olas" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="sec-olas"><span class="header-section-number">3.1.1</span> Las tres olas</h3>
+<p>El estudio utiliza tres olas de la encuesta CEP, correspondientes a los años 1999, 2009 y 2019, que en conjunto permiten reconstruir la evolución de las variables de interés a lo largo de dos décadas.</p>
+<p><strong>CEP 1999 (N.° 39)</strong>. Población de 18 años y más, urbana y rural, residente en todo el país, con exclusión de Isla de Pascua, según el Censo de 1992. Se entrevistó a 1.503 personas en 150 comunas, mediante muestreo aleatorio y probabilístico en tres etapas (manzana, hogar, entrevistado). El nivel de respuesta fue de 90%, con un error muestral estimado en ±3% (varianza máxima, 95% de confianza). El trabajo de campo se realizó entre el 18 de marzo y el 4 de abril de 2000.</p>
+<p><strong>CEP 2009 (N.° 59)</strong>. Misma población objetivo, con cobertura basada en el Censo de 2002. Se entrevistó a 1.505 personas en 146 comunas, mediante muestreo estratificado por región y zona urbana/rural, aleatorio y probabilístico en tres etapas. El nivel de respuesta con sujetos originales fue de 88%, con un error muestral de ±3%. El trabajo de campo se realizó entre el 14 de mayo y el 3 de junio de 2009.</p>
+<p><strong>CEP 2019 (N.° 83)</strong>. Misma población objetivo, con cobertura basada en el Censo de 2017. Se entrevistó a 1.380 personas en 128 comunas, mediante el mismo diseño muestral estratificado, sin uso de reemplazos. El nivel de respuesta con sujetos originales fue de 71%, con un error muestral de ±3%. El instrumento consistió en entrevistas individuales cara a cara con cuestionario estructurado, aplicadas entre el 26 de abril y el 3 de junio de 2019.</p>
+</section>
+<section id="sec-recuperacion" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="sec-recuperacion"><span class="header-section-number">3.1.2</span> Base de datos y recuperación de variables desde la ISSP</h3>
+<p>Se utilizó la Base Consolidada de las encuestas CEP, publicada por el Centro de Estudios Públicos <span class="citation" data-cites="cep_2026">(<a href="referencias.html#ref-cep_2026" role="doc-biblioref"><strong>cep_2026?</strong></a>)</span>, filtrada a las encuestas N.° 39, 59 y 83. Esta base es la fuente principal de todas las variables del estudio, incluidos el ponderador y las variables de diseño muestral. Sin embargo, cuatro variables no estaban disponibles en la CEP en el formato requerido y se recuperaron desde las bases del módulo de desigualdad del ISSP, que corresponden a las mismas encuestas y, por lo tanto, a las mismas personas:</p>
+<ul>
+<li><strong>Ingreso percibido del presidente de una gran empresa y de un obrero no calificado (1999).</strong> La CEP 1999 solo publica estas preguntas en tramos de ingreso, mientras que la ISSP conserva el monto en pesos.</li>
+<li><strong>Estatus social subjetivo (2009 y 2019).</strong> La CEP no incluye esta pregunta en esas dos olas.</li>
+</ul>
+<p>Para incorporar estas variables se asignó a cada caso de la ISSP el identificador de su caso en la CEP (<code>id_bu</code>). En 1999, donde la ISSP no trae identificador, se construyó una llave con trece respuestas presentes en ambas bases (sexo, edad, estado civil, situación laboral y nueve preguntas sobre desigualdad y movilidad), de modo que dos casos con las mismas trece respuestas se consideran la misma persona. En 2009 se utilizó el identificador de la encuesta y en 2019 los últimos cuatro dígitos del identificador de caso. En cada ola se comprobó que el enlace fuera correcto: en 2009 y 2019 coinciden el sexo y la edad en todos los casos unidos, y en 1999 el monto de la ISSP cae en el tramo registrado por la CEP para la misma persona en los 1.503 casos. La unión recuperó todos los casos de 1999 y 2009 y 1.374 de los 1.380 casos de 2019. Los seis casos restantes quedan sin estatus subjetivo.</p>
+</section>
+<section id="sec-diseno" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="sec-diseno"><span class="header-section-number">3.1.3</span> Diseño muestral y ponderación</h3>
+<p>Las encuestas CEP tienen un diseño muestral complejo: estratificado, por conglomerados y en tres etapas. Por ello, el manual de la base consolidada indica que el análisis debe incorporar, además del ponderador, las variables de estrato y conglomerado para estimar correctamente los errores estándar <span class="citation" data-cites="cep_2026">(<a href="referencias.html#ref-cep_2026" role="doc-biblioref"><strong>cep_2026?</strong></a>)</span>. Las variables utilizadas son:</p>
+<ul>
+<li><code>pond</code>, el ponderador, que corrige por las probabilidades de selección en cada etapa y por no respuesta.</li>
+<li><code>estrato</code>, que agrupa los estratos definidos por región y zona (urbana o rural). En algunos años anteriores a 2010 se consideró una sola unidad primaria de muestreo por estrato, por lo que la base consolidada los agrupa. Los estratos son equivalentes entre encuestas.</li>
+<li><code>secu</code>, el conglomerado, identificado con números correlativos que no se repiten entre encuestas.</li>
+</ul>
+<p>El diseño se declaró con el paquete <code>survey</code> <span class="citation" data-cites="lumley_2004">(<a href="referencias.html#ref-lumley_2004" role="doc-biblioref"><strong>lumley_2004?</strong></a>)</span>, a través de <code>srvyr</code>, tal como recomienda el manual (<code>as_survey(weights = pond, strata = estrato, ids = secu, nest = TRUE)</code>), después de realizar todas las recodificaciones. Dos decisiones adicionales siguen las indicaciones del manual y de la literatura especializada. Primero, los estratos con un único conglomerado aportan varianza cero (<code>survey.lonely.psu = "certainty"</code>, equivalente a <code>singleunit(certainty)</code> en Stata). Segundo, el análisis de la muestra analítica y de subgrupos se realiza filtrando sobre el diseño y no sobre la base de datos, porque filtrar la base subestima la varianza.</p>
+</section>
+</section>
+<section id="sec-variables" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-variables"><span class="header-section-number">3.2</span> Variables</h2>
+<p>La <a href="#tbl-operacionalizacion" class="quarto-xref">Tabla&nbsp;<span>3.1</span></a> resume las variables del estudio, su fuente, las olas en que están disponibles y el tratamiento aplicado. Las categorías finales de cada variable y su distribución en la base completa se presentan en la <a href="#tbl-descriptiva" class="quarto-xref">Tabla&nbsp;<span>3.2</span></a>, en la sección de muestra analítica.</p>
+<div id="tbl-operacionalizacion" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[16,9,11,10,30,24]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-operacionalizacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.1: Operacionalización de las variables
+</figcaption>
+<div aria-describedby="tbl-operacionalizacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 30%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Hipótesis</th>
+<th>Fuente</th>
+<th>Años</th>
+<th>Pregunta original</th>
+<th>Tratamiento</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Justicia de mercado en salud</td>
+<td>Dependiente</td>
+<td>CEP</td>
+<td>1999, 2009, 2019</td>
+<td>¿Es justo o injusto, correcto o incorrecto, que las personas con ingresos más altos puedan pagar por una mejor atención de salud que las personas con ingresos más bajos?</td>
+<td>Invertida; ordinal de cinco categorías (1 = muy injusto, 5 = muy justo)</td>
+</tr>
+<tr class="even">
+<td>Posición socioeconómica</td>
+<td>H1</td>
+<td>CEP</td>
+<td>1999, 2009, 2019</td>
+<td>Tramo de ingreso total del hogar. ¿Cuántas personas viven permanentemente en este hogar?</td>
+<td>Punto medio del tramo dividido por el número de personas; decil ponderado dentro de cada ola (continua, 1 a 10)</td>
+</tr>
+<tr class="odd">
+<td>Percepción de meritocracia, alternativa 1</td>
+<td>H2</td>
+<td>CEP</td>
+<td>1999</td>
+<td>En Chile las personas son remuneradas, es decir se les paga, por sus esfuerzos.</td>
+<td>Invertida (5 = muy de acuerdo); ordinal, factor con 1 como referencia</td>
+</tr>
+<tr class="even">
+<td>Percepción de meritocracia, alternativas 1 y 2</td>
+<td>H2</td>
+<td>CEP</td>
+<td>2009, 2019</td>
+<td>Para surgir en la vida, ¿cuán importante cree Ud. que es el trabajo duro?</td>
+<td>Invertida (5 = esencial); ordinal, factor con 1 como referencia</td>
+</tr>
+<tr class="odd">
+<td>Percepción de brecha salarial</td>
+<td>H3</td>
+<td>CEP (2009, 2019); ISSP (1999)</td>
+<td>1999, 2009, 2019</td>
+<td>¿Cuánto cree Ud. que gana el presidente de una gran empresa nacional? ¿Y un obrero no calificado de una fábrica?</td>
+<td>Montos fuera de rango como perdidos; logaritmo de la razón presidente / obrero</td>
+</tr>
+<tr class="even">
+<td>Posición política</td>
+<td>Control</td>
+<td>CEP</td>
+<td>1999, 2009, 2019</td>
+<td>¿Con cuál se identifica más o con cuál posición simpatiza Ud. más?</td>
+<td>Cuatro categorías; factor con izquierda como referencia</td>
+</tr>
+<tr class="odd">
+<td>Estatus social subjetivo</td>
+<td>Control</td>
+<td>CEP (1999); ISSP (2009, 2019)</td>
+<td>1999, 2009, 2019</td>
+<td>¿Dónde se ubicaría Ud. en esta escala?</td>
+<td>Escala de 1 a 10 llevada a un mismo sentido (10 = alto)</td>
+</tr>
+<tr class="even">
+<td>Sexo</td>
+<td>Control</td>
+<td>CEP</td>
+<td>1999, 2009, 2019</td>
+<td>Sexo de la persona entrevistada</td>
+<td>Hombre (referencia), mujer</td>
+</tr>
+<tr class="odd">
+<td>Edad</td>
+<td>Control</td>
+<td>CEP</td>
+<td>1999, 2009, 2019</td>
+<td>Edad exacta</td>
+<td>Tres tramos (29 años o menos, 30 a 59, 60 o más)</td>
+</tr>
+<tr class="even">
+<td>Educación</td>
+<td>Control</td>
+<td>CEP</td>
+<td>1999, 2009, 2019</td>
+<td>Nivel educacional alcanzado</td>
+<td>Completó educación superior o no</td>
+</tr>
+<tr class="odd">
+<td>Año de la encuesta</td>
+<td>H4</td>
+<td>CEP</td>
+<td>1999, 2009, 2019</td>
+<td>No corresponde</td>
+<td>Factor con 1999 como referencia</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="sec-vd" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="sec-vd"><span class="header-section-number">3.2.1</span> Variable dependiente: justicia de mercado en salud</h3>
+<p>Se mide a través de la pregunta: “¿Es justo o injusto, correcto o incorrecto, que las personas con ingresos más altos puedan pagar por una mejor atención de salud que las personas con ingresos más bajos?”. Las opciones de respuesta son: muy justo o definitivamente correcto; algo justo o correcto; ni justo ni injusto; algo injusto o incorrecto; y muy injusto o definitivamente incorrecto. La variable se invirtió para que valores más altos indiquen mayor aceptación de la justicia de mercado, y se mantienen las cinco categorías (1 = muy injusto, 5 = muy justo) para no perder información. Esta decisión permite estimar modelos para variables ordinales (<a href="#sec-estrategia" class="quarto-xref"><span>Sección 3.4</span></a>).</p>
+</section>
+<section id="sec-vi" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="sec-vi"><span class="header-section-number">3.2.2</span> Variables independientes</h3>
+<p><strong>Posición socioeconómica (H1)</strong>. Se mide a través del ingreso per cápita del hogar, calculado dividiendo el punto medio del tramo de ingreso reportado por el número de integrantes del hogar. Los tramos de 1999 son distintos a los de 2009 y 2019 (estas dos olas comparten los mismos montos nominales), por lo que los montos no son comparables entre años. Por ello, el ingreso per cápita se transformó en deciles ponderados dentro de cada ola, y entra a los modelos como variable continua de 1 a 10. Con esta medida, H1 se plantea en términos de posición relativa y no del monto de ingreso. Los casos que no informan tramo de ingreso quedan fuera de la muestra analítica.</p>
+<p><strong>Percepción de meritocracia (H2)</strong>. Su medición se describe en una sección aparte (<a href="#sec-meritocracia" class="quarto-xref"><span>Sección 3.2.4</span></a>).</p>
+<p><strong>Percepción de brecha salarial (H3)</strong>. Su medición se describe en una sección aparte (<a href="#sec-brecha" class="quarto-xref"><span>Sección 3.2.5</span></a>).</p>
+<p><strong>Año de la encuesta (H4)</strong>. Entra como factor, con 1999 como categoría de referencia.</p>
+<p><strong>Interacción entre posición socioeconómica y percepción de meritocracia (H5)</strong>. Se incluye como el producto entre el decil de ingreso y cada categoría de percepción de meritocracia (<a href="#sec-estrategia" class="quarto-xref"><span>Sección 3.4</span></a>).</p>
+</section>
+<section id="sec-controles" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="sec-controles"><span class="header-section-number">3.2.3</span> Variables de control</h3>
+<ul>
+<li><strong>Posición política</strong>: izquierda (incluye centro izquierda), centro, derecha (incluye centro derecha) y sin posición política (independiente y ninguna). Entra a los modelos como factor, con izquierda como categoría de referencia.</li>
+<li><strong>Estatus social subjetivo</strong>: autoubicación en la jerarquía social en una escala de 1 (nivel más bajo) a 10 (nivel más alto). En 2009 y 2019 proviene de la ISSP (<a href="#sec-recuperacion" class="quarto-xref"><span>Sección 3.1.2</span></a>). Como la CEP codifica la escala en sentido inverso al de la ISSP, todas las olas se llevaron a un mismo sentido.</li>
+<li><strong>Sexo</strong>: hombre (referencia) y mujer.</li>
+<li><strong>Edad</strong>: en tramos (jóvenes, 29 años o menos; adultos, entre 30 y 59 años; adultos mayores, 60 años o más).</li>
+<li><strong>Educación</strong>: completó educación superior o no la completó.</li>
+</ul>
+</section>
+<section id="sec-meritocracia" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="sec-meritocracia"><span class="header-section-number">3.2.4</span> Percepción de meritocracia</h3>
+<p>Para medir la percepción de meritocracia se revisaron todos los ítems de los bloques <code>pobreza_29</code>, <code>pobreza_30</code>, <code>pobreza_42</code> y <code>pobreza_68</code> de la CEP en las tres olas (registro completo en el <a href="apendices/insumo-items-meritocracia.html" class="quarto-xref"><span>Apéndice B</span></a>). Los bloques se distinguen por el constructo que miden:</p>
+<ul>
+<li><code>pobreza_29</code> y <code>pobreza_68</code>: cuán importantes son distintos factores para surgir en la vida (percepción). El primero solo existe en 1999, y sus ítems de familia y de contactos tienen equivalente en <code>pobreza_68</code> para 2009 y 2019, con redacción y categorías algo distintas.</li>
+<li><code>pobreza_30</code>: cuánto se premia en Chile el esfuerzo y las capacidades. Solo se aplicó en 1999.</li>
+<li><code>pobreza_42</code>: qué debería importar al decidir cuánto gana la gente. Es una medida normativa (cómo debería ser), no una percepción, por lo que se descartó para H2.</li>
+</ul>
+<p>Una versión previa del análisis operaba la percepción de meritocracia como un índice de los ítems de provenir de una familia rica y de conocer a las personas adecuadas, invertidos. Se descartó por dos razones. La primera es conceptual: ambos ítems miden privilegio, no el valor que se asigna al esfuerzo. La segunda es empírica: la coherencia interna del índice fue baja (r de Pearson entre ítems de 0,36 en 1999, 0,15 en 2009 y 0,18 en 2019; alfa de 0,53, 0,27 y 0,30).</p>
+<p>El ítem que mejor se ajusta al concepto de meritocracia como creencia en que el esfuerzo se recompensa es el trabajo duro. No existe un ítem idéntico en las tres olas, por lo que se plantean dos alternativas.</p>
+<p><strong>Alternativa 1: ítems análogos entre olas.</strong> Se usa <code>pobreza_30_a</code> en 1999 (“En Chile las personas son remuneradas, es decir se les paga, por sus esfuerzos”; escala de acuerdo) y <code>pobreza_68_e</code> en 2009 y 2019 (“Para surgir en la vida, ¿cuán importante cree Ud. que es el trabajo duro?”; escala de importancia). Permite conservar las tres olas, pero los dos ítems difieren en el enunciado, en la escala y en el constructo (lo que se premia en Chile frente a lo que importa para surgir), por lo que la equivalencia entre ambos es un supuesto.</p>
+<p><strong>Alternativa 2: un único ítem.</strong> Se usa <code>pobreza_68_e</code> y la hipótesis H2 se evalúa solo con 2009 y 2019. Evita asumir equivalencia entre ítems, pero excluye a 1999 de los modelos que incluyen la meritocracia.</p>
+</section>
+<section id="sec-brecha" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="sec-brecha"><span class="header-section-number">3.2.5</span> Percepción de brecha salarial</h3>
+<p>La percepción de brecha salarial se mide con dos preguntas sobre cuánto cree la persona que gana al mes, después de impuestos, el presidente de una gran empresa nacional y un obrero no calificado de una fábrica. La brecha se opera como el logaritmo de la razón entre ambos montos (ingreso del presidente de empresa dividido por el ingreso del obrero). En 2009 y 2019 ambos montos provienen de la CEP, y en 1999 de la ISSP (<a href="#sec-recuperacion" class="quarto-xref"><span>Sección 3.1.2</span></a>).</p>
+<p>Estas preguntas presentan un nivel importante de no respuesta, que se concentra en el ingreso del presidente de empresa. Considerando la no respuesta y los valores depurados, el ingreso del presidente de empresa queda perdido en 38,8% de los casos en 1999, 11,6% en 2009 y 24,6% en 2019, y el del obrero en 21,2%, 5,7% y 9,6%, respectivamente. La brecha puede calcularse en 891 casos en 1999 (59,3%), 1.305 en 2009 (86,7%) y 1.017 en 2019 (73,7%). Quien no responde por el obrero casi siempre tampoco responde por el presidente de empresa, pero lo contrario no ocurre.</p>
+<p>Para limitar el efecto de respuestas fuera de rango, se asignó valor perdido a los montos de presidente de empresa menores a 250.001 pesos o mayores a 100.000.000, y a los de obrero menores a 40.001 o mayores a 999.999. Los mismos límites se aplicaron en las tres olas, en pesos nominales. El registro completo de los casos perdidos y de la depuración se presenta en el <a href="apendices/insumo-na-sueldos-gerente-obrero.html" class="quarto-xref"><span>Apéndice C</span></a>.</p>
+</section>
+</section>
+<section id="sec-muestra" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-muestra"><span class="header-section-number">3.3</span> Muestra analítica</h2>
+<p>Los modelos se estiman con los casos que tienen información en todas las variables incluidas (casos completos). Con la alternativa 1 de meritocracia, la muestra analítica es de 2.350 casos de 4.388 posibles, distribuidos en 748 casos en 1999, 983 en 2009 y 619 en 2019. Con la alternativa 2, que excluye 1999, es de 1.602 casos (<a href="#tbl-muestra" class="quarto-xref">Tabla&nbsp;<span>3.3</span></a>). La pérdida de casos se explica principalmente por la brecha salarial en 1999 y el ingreso en 2019. La <a href="#tbl-descriptiva" class="quarto-xref">Tabla&nbsp;<span>3.2</span></a> presenta, para cada variable del modelo, sus categorías finales, el número de casos válidos, el porcentaje de casos perdidos y un resumen de su distribución.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Ver código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin_titulo</span>(tablas_met<span class="sc">$</span>descriptiva)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-descriptiva" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-descriptiva-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.2: Variables del estudio: casos válidos, casos perdidos por ola y distribución (sin ponderar)
+</figcaption>
+<div aria-describedby="tbl-descriptiva-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="vshcfkdhgt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vshcfkdhgt table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#vshcfkdhgt thead, #vshcfkdhgt tbody, #vshcfkdhgt tfoot, #vshcfkdhgt tr, #vshcfkdhgt td, #vshcfkdhgt th {
+  border-style: none;
+}
+
+#vshcfkdhgt p {
+  margin: 0;
+  padding: 0;
+}
+
+#vshcfkdhgt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#vshcfkdhgt .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#vshcfkdhgt .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#vshcfkdhgt .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#vshcfkdhgt .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#vshcfkdhgt .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#vshcfkdhgt .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#vshcfkdhgt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#vshcfkdhgt .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#vshcfkdhgt .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#vshcfkdhgt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#vshcfkdhgt .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vshcfkdhgt .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vshcfkdhgt .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#vshcfkdhgt .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vshcfkdhgt .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#vshcfkdhgt .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#vshcfkdhgt .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#vshcfkdhgt .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vshcfkdhgt .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#vshcfkdhgt .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vshcfkdhgt .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#vshcfkdhgt .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vshcfkdhgt .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vshcfkdhgt .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vshcfkdhgt .gt_left {
+  text-align: left;
+}
+
+#vshcfkdhgt .gt_center {
+  text-align: center;
+}
+
+#vshcfkdhgt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vshcfkdhgt .gt_font_normal {
+  font-weight: normal;
+}
+
+#vshcfkdhgt .gt_font_bold {
+  font-weight: bold;
+}
+
+#vshcfkdhgt .gt_font_italic {
+  font-style: italic;
+}
+
+#vshcfkdhgt .gt_super {
+  font-size: 65%;
+}
+
+#vshcfkdhgt .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#vshcfkdhgt .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#vshcfkdhgt .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#vshcfkdhgt .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#vshcfkdhgt .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#vshcfkdhgt .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#vshcfkdhgt .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#vshcfkdhgt .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#vshcfkdhgt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th rowspan="2" id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Variable</th>
+<th rowspan="2" id="Categorias" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Categorías o rango</th>
+<th rowspan="2" id="n_valido" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">N válido</th>
+<th colspan="3" id="% perdidos" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+% perdidos
+</div></th>
+<th rowspan="2" id="Distribucion" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Distribución</th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="perdidos_1999" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">1999</th>
+<th id="perdidos_2009" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">2009</th>
+<th id="perdidos_2019" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">2019</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="gt_group_heading_row odd">
+<th colspan="7" id="Variable dependiente" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Variable dependiente</th>
+</tr>
+<tr class="gt_row_group_first even">
+<td class="gt_row gt_left" headers="Variable dependiente  Variable">Justicia de mercado en salud</td>
+<td class="gt_row gt_left" headers="Variable dependiente  Categorias">1 = muy injusto a 5 = muy justo</td>
+<td class="gt_row gt_right" headers="Variable dependiente  n_valido">4.244</td>
+<td class="gt_row gt_left" headers="Variable dependiente  perdidos_1999">4,3%</td>
+<td class="gt_row gt_left" headers="Variable dependiente  perdidos_2009">2,7%</td>
+<td class="gt_row gt_left" headers="Variable dependiente  perdidos_2019">2,8%</td>
+<td class="gt_row gt_left" headers="Variable dependiente  Distribucion">Muy injusto: 32,8%<br>
+Algo injusto: 24,4%<br>
+Ni justo ni injusto: 16,0%<br>
+Algo justo: 15,4%<br>
+Muy justo: 11,4%</td>
+</tr>
+<tr class="gt_group_heading_row odd">
+<th colspan="7" id="Variables independientes" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Variables independientes</th>
+</tr>
+<tr class="gt_row_group_first even">
+<td class="gt_row gt_left" headers="Variables independientes  Variable">Decil de ingreso per cápita (H1)</td>
+<td class="gt_row gt_left" headers="Variables independientes  Categorias">1 a 10 (continua)</td>
+<td class="gt_row gt_right" headers="Variables independientes  n_valido">3.326</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_1999">14,2%</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_2009">21,2%</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_2019">38,4%</td>
+<td class="gt_row gt_left" headers="Variables independientes  Distribucion">Media = 5,49<br>
+DE = 2,84</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variables independientes  Variable">Meritocracia, alternativa 1 (H2): esfuerzo remunerado</td>
+<td class="gt_row gt_left" headers="Variables independientes  Categorias">1 = muy en desacuerdo a 5 = muy de acuerdo</td>
+<td class="gt_row gt_right" headers="Variables independientes  n_valido">1.465</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_1999">2,5%</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_2009">No aplica</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_2019">No aplica</td>
+<td class="gt_row gt_left" headers="Variables independientes  Distribucion">Muy en desacuerdo: 8,5%<br>
+En desacuerdo: 41,8%<br>
+Ni de acuerdo ni en desacuerdo: 10,9%<br>
+De acuerdo: 31,5%<br>
+Muy de acuerdo: 7,3%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variables independientes  Variable">Meritocracia, alternativas 1 y 2 (H2): trabajo duro</td>
+<td class="gt_row gt_left" headers="Variables independientes  Categorias">1 = no es importante a 5 = esencial</td>
+<td class="gt_row gt_right" headers="Variables independientes  n_valido">2.857</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_1999">No aplica</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_2009">1,1%</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_2019">0,9%</td>
+<td class="gt_row gt_left" headers="Variables independientes  Distribucion">No es importante: 3,0%<br>
+No muy importante: 7,8%<br>
+Bastante importante: 18,7%<br>
+Muy importante: 46,5%<br>
+Esencial: 24,0%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variables independientes  Variable">Brecha salarial percibida (H3)</td>
+<td class="gt_row gt_left" headers="Variables independientes  Categorias">Logaritmo de la razón presidente / obrero (continua)</td>
+<td class="gt_row gt_right" headers="Variables independientes  n_valido">3.213</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_1999">40,7%</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_2009">13,3%</td>
+<td class="gt_row gt_left" headers="Variables independientes  perdidos_2019">26,3%</td>
+<td class="gt_row gt_left" headers="Variables independientes  Distribucion">Media = 3,39<br>
+DE = 1,07</td>
+</tr>
+<tr class="gt_group_heading_row even">
+<th colspan="7" id="Controles" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Controles</th>
+</tr>
+<tr class="gt_row_group_first odd">
+<td class="gt_row gt_left" headers="Controles  Variable">Posición política</td>
+<td class="gt_row gt_left" headers="Controles  Categorias">Izquierda (ref.), centro, derecha, sin posición</td>
+<td class="gt_row gt_right" headers="Controles  n_valido">4.166</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_1999">6,0%</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_2009">4,1%</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_2019">5,1%</td>
+<td class="gt_row gt_left" headers="Controles  Distribucion">Izquierda: 21,3%<br>
+Centro: 9,9%<br>
+Derecha: 17,6%<br>
+Sin posición: 51,3%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Controles  Variable">Estatus social subjetivo</td>
+<td class="gt_row gt_left" headers="Controles  Categorias">1 (bajo) a 10 (alto)</td>
+<td class="gt_row gt_right" headers="Controles  n_valido">4.358</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_1999">0,0%</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_2009">1,0%</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_2019">1,1%</td>
+<td class="gt_row gt_left" headers="Controles  Distribucion">Media = 4,14<br>
+DE = 1,72</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Controles  Variable">Sexo</td>
+<td class="gt_row gt_left" headers="Controles  Categorias">Hombre (ref.), mujer</td>
+<td class="gt_row gt_right" headers="Controles  n_valido">4.388</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_1999">0,0%</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_2009">0,0%</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_2019">0,0%</td>
+<td class="gt_row gt_left" headers="Controles  Distribucion">Hombre: 41,0%<br>
+Mujer: 59,0%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Controles  Variable">Edad</td>
+<td class="gt_row gt_left" headers="Controles  Categorias">29 años o menos, 30 a 59, 60 o más</td>
+<td class="gt_row gt_right" headers="Controles  n_valido">4.388</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_1999">0,0%</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_2009">0,0%</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_2019">0,0%</td>
+<td class="gt_row gt_left" headers="Controles  Distribucion">Jóvenes: 20,6%<br>
+Adultos: 52,3%<br>
+Adultos mayores: 27,1%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Controles  Variable">Educación</td>
+<td class="gt_row gt_left" headers="Controles  Categorias">No completó (ref.) o completó educación superior</td>
+<td class="gt_row gt_right" headers="Controles  n_valido">4.353</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_1999">1,1%</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_2009">0,5%</td>
+<td class="gt_row gt_left" headers="Controles  perdidos_2019">0,8%</td>
+<td class="gt_row gt_left" headers="Controles  Distribucion">No completó: 83,4%<br>
+Completó: 16,6%</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="7" class="gt_sourcenote">Base completa sin ponderar (n = 4.388). N válido y distribución se calculan sobre las olas en que se aplicó la pregunta. Fuente: Encuestas CEP 39 (1999), 59 (2009) y 83 (2019); ISSP 1999, 2009 y 2019 para la brecha salarial (1999) y el estatus subjetivo (2009 y 2019).</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Ver código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin_titulo</span>(tablas_met<span class="sc">$</span>muestra)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-muestra" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-muestra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.3: Muestra analítica por ola según la variable de meritocracia
+</figcaption>
+<div aria-describedby="tbl-muestra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="jsafrysybr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jsafrysybr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#jsafrysybr thead, #jsafrysybr tbody, #jsafrysybr tfoot, #jsafrysybr tr, #jsafrysybr td, #jsafrysybr th {
+  border-style: none;
+}
+
+#jsafrysybr p {
+  margin: 0;
+  padding: 0;
+}
+
+#jsafrysybr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#jsafrysybr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#jsafrysybr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#jsafrysybr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#jsafrysybr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#jsafrysybr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#jsafrysybr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#jsafrysybr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#jsafrysybr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#jsafrysybr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#jsafrysybr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jsafrysybr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#jsafrysybr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#jsafrysybr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#jsafrysybr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jsafrysybr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#jsafrysybr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#jsafrysybr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#jsafrysybr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jsafrysybr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#jsafrysybr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jsafrysybr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#jsafrysybr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jsafrysybr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jsafrysybr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jsafrysybr .gt_left {
+  text-align: left;
+}
+
+#jsafrysybr .gt_center {
+  text-align: center;
+}
+
+#jsafrysybr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#jsafrysybr .gt_font_normal {
+  font-weight: normal;
+}
+
+#jsafrysybr .gt_font_bold {
+  font-weight: bold;
+}
+
+#jsafrysybr .gt_font_italic {
+  font-style: italic;
+}
+
+#jsafrysybr .gt_super {
+  font-size: 65%;
+}
+
+#jsafrysybr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#jsafrysybr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#jsafrysybr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#jsafrysybr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#jsafrysybr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#jsafrysybr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#jsafrysybr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#jsafrysybr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#jsafrysybr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th rowspan="2" id="Ola" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Ola</th>
+<th rowspan="2" id="total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Casos en la base</th>
+<th colspan="3" id="Casos completos (% de la ola)" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+Casos completos (% de la ola)
+</div></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="sin_h2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sin H2</th>
+<th id="alt_1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Con H2, alternativa 1</th>
+<th id="alt_2" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Con H2, alternativa 2</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Ola">1999</td>
+<td class="gt_row gt_right" headers="total">1.503</td>
+<td class="gt_row gt_right" headers="sin_h2">750 (49,9%)</td>
+<td class="gt_row gt_right" headers="alt_1">748 (49,8%)</td>
+<td class="gt_row gt_left" headers="alt_2">No aplica</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Ola">2009</td>
+<td class="gt_row gt_right" headers="total">1.505</td>
+<td class="gt_row gt_right" headers="sin_h2">987 (65,6%)</td>
+<td class="gt_row gt_right" headers="alt_1">983 (65,3%)</td>
+<td class="gt_row gt_left" headers="alt_2">983 (65,3%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Ola">2019</td>
+<td class="gt_row gt_right" headers="total">1.380</td>
+<td class="gt_row gt_right" headers="sin_h2">619 (44,9%)</td>
+<td class="gt_row gt_right" headers="alt_1">619 (44,9%)</td>
+<td class="gt_row gt_left" headers="alt_2">619 (44,9%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Ola">Total</td>
+<td class="gt_row gt_right" headers="total">4.388</td>
+<td class="gt_row gt_right" headers="sin_h2">2.356 (53,7%)</td>
+<td class="gt_row gt_right" headers="alt_1">2.350 (53,6%)</td>
+<td class="gt_row gt_left" headers="alt_2">1.602 (36,5%)</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="5" class="gt_sourcenote">Casos completos en justicia de mercado en salud, decil de ingreso, brecha salarial, posición política, estatus subjetivo, sexo, edad y educación; las columnas con H2 agregan el ítem de meritocracia correspondiente. Sin ponderar.</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="sec-estrategia" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-estrategia"><span class="header-section-number">3.4</span> Estrategia de análisis</h2>
+<p>El análisis se desarrolla en dos etapas. En la primera, se realizan análisis descriptivos univariados para caracterizar la distribución de la variable dependiente y de cada una de las variables independientes y de control en las tres olas, seguidos de análisis bivariados que examinan la asociación entre la justicia de mercado en salud y cada uno de los factores explicativos de manera independiente, tanto de forma agregada como diferenciada por ola.</p>
+<p>En la segunda etapa, dado que la variable dependiente tiene cinco categorías ordenadas, se estiman modelos de regresión logística ordinal de odds proporcionales (<em>proportional odds</em>). Para una variable dependiente <span class="math inline">\(Y\)</span> con categorías <span class="math inline">\(j = 1, \dots, 5\)</span> y un vector de variables explicativas <span class="math inline">\(\mathbf{x}\)</span>, el modelo es:</p>
+<p><span class="math display">\[
+\operatorname{logit}\left[P(Y_i \le j)\right] = \alpha_j - \mathbf{x}_i'\boldsymbol{\beta}, \qquad j = 1, \dots, 4
+\]</span></p>
+<p>donde <span class="math inline">\(\alpha_j\)</span> son los umbrales entre categorías y <span class="math inline">\(\boldsymbol{\beta}\)</span> los coeficientes, que se asumen iguales para todos los umbrales. Con esta parametrización, un coeficiente positivo indica mayor probabilidad de responder en las categorías más altas (más cercanas a “muy justo”). Mantener las cinco categorías evita perder la información que se descarta al dicotomizar la variable.</p>
+<p>Los modelos se estimaron con diseño muestral complejo mediante el paquete <code>survey</code> <span class="citation" data-cites="lumley_2004">(<a href="referencias.html#ref-lumley_2004" role="doc-biblioref"><strong>lumley_2004?</strong></a>)</span> (función <code>svyolr</code>), sobre el diseño declarado en la <a href="#sec-diseno" class="quarto-xref"><span>Sección 3.1.3</span></a>. Los modelos se presentan de manera secuencial:</p>
+<ol type="1">
+<li><strong>Modelo 1</strong>: posición socioeconómica (H1).</li>
+<li><strong>Modelo 2</strong>: percepción de meritocracia (H2).</li>
+<li><strong>Modelo 3</strong>: percepción de brecha salarial (H3).</li>
+<li><strong>Modelo 4</strong>: año de la encuesta (H4).</li>
+<li><strong>Modelo 5</strong>: las cuatro variables independientes, más las variables de control.</li>
+<li><strong>Modelo 6</strong>: el modelo 5 más la interacción entre la posición socioeconómica y la percepción de meritocracia (H5).</li>
+</ol>
+<p>Los modelos 1 a 4 no incluyen variables de control. Dado que en modelos logísticos ordinales los coeficientes de interacción no equivalen a efectos en la escala de probabilidades, la interacción se interpreta mediante efectos marginales promedio, calculados para cada categoría de respuesta.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-antecedentes.html" class="pagination-link" aria-label="Antecedentes Conceptuales">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Antecedentes Conceptuales</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-resultados.html" class="pagination-link" aria-label="Resultados">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Resultados</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
