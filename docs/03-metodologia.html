@@ -58,7 +58,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -314,7 +334,7 @@ window.Quarto = {
 </section>
 <section id="sec-recuperacion" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="sec-recuperacion"><span class="header-section-number">3.1.2</span> Base de datos y recuperación de variables desde la ISSP</h3>
-<p>Se utilizó la Base Consolidada de las encuestas CEP, publicada por el Centro de Estudios Públicos <span class="citation" data-cites="cep_2026">(<a href="referencias.html#ref-cep_2026" role="doc-biblioref"><strong>cep_2026?</strong></a>)</span>, filtrada a las encuestas N.° 39, 59 y 83. Esta base es la fuente principal de todas las variables del estudio, incluidos el ponderador y las variables de diseño muestral. Sin embargo, cuatro variables no estaban disponibles en la CEP en el formato requerido y se recuperaron desde las bases del módulo de desigualdad del ISSP, que corresponden a las mismas encuestas y, por lo tanto, a las mismas personas:</p>
+<p>Se utilizó la Base Consolidada de las encuestas CEP, publicada por el Centro de Estudios Públicos <span class="citation" data-cites="publicos_2026">(<a href="referencias.html#ref-publicos_2026" role="doc-biblioref">Públicos, 2026</a>)</span>, filtrada a las encuestas N.° 39, 59 y 83. Esta base es la fuente principal de todas las variables del estudio, incluidos el ponderador y las variables de diseño muestral. Sin embargo, tres variables no estaban disponibles en la CEP en el formato requerido y se recuperaron desde las bases del módulo de desigualdad del ISSP, que corresponden a las mismas encuestas y, por lo tanto, a las mismas personas:</p>
 <ul>
 <li><strong>Ingreso percibido del presidente de una gran empresa y de un obrero no calificado (1999).</strong> La CEP 1999 solo publica estas preguntas en tramos de ingreso, mientras que la ISSP conserva el monto en pesos.</li>
 <li><strong>Estatus social subjetivo (2009 y 2019).</strong> La CEP no incluye esta pregunta en esas dos olas.</li>
@@ -323,18 +343,18 @@ window.Quarto = {
 </section>
 <section id="sec-diseno" class="level3" data-number="3.1.3">
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="sec-diseno"><span class="header-section-number">3.1.3</span> Diseño muestral y ponderación</h3>
-<p>Las encuestas CEP tienen un diseño muestral complejo: estratificado, por conglomerados y en tres etapas. Por ello, el manual de la base consolidada indica que el análisis debe incorporar, además del ponderador, las variables de estrato y conglomerado para estimar correctamente los errores estándar <span class="citation" data-cites="cep_2026">(<a href="referencias.html#ref-cep_2026" role="doc-biblioref"><strong>cep_2026?</strong></a>)</span>. Las variables utilizadas son:</p>
+<p>Las encuestas CEP tienen un diseño muestral complejo: estratificado, por conglomerados y en tres etapas. Por ello, el manual de la base consolidada indica que el análisis debe incorporar, además del ponderador, las variables de estrato y conglomerado para estimar correctamente los errores estándar <span class="citation" data-cites="publicos_2026">(<a href="referencias.html#ref-publicos_2026" role="doc-biblioref">Públicos, 2026</a>)</span>. Las variables utilizadas son:</p>
 <ul>
 <li><code>pond</code>, el ponderador, que corrige por las probabilidades de selección en cada etapa y por no respuesta.</li>
 <li><code>estrato</code>, que agrupa los estratos definidos por región y zona (urbana o rural). En algunos años anteriores a 2010 se consideró una sola unidad primaria de muestreo por estrato, por lo que la base consolidada los agrupa. Los estratos son equivalentes entre encuestas.</li>
 <li><code>secu</code>, el conglomerado, identificado con números correlativos que no se repiten entre encuestas.</li>
 </ul>
-<p>El diseño se declaró con el paquete <code>survey</code> <span class="citation" data-cites="lumley_2004">(<a href="referencias.html#ref-lumley_2004" role="doc-biblioref"><strong>lumley_2004?</strong></a>)</span>, a través de <code>srvyr</code>, tal como recomienda el manual (<code>as_survey(weights = pond, strata = estrato, ids = secu, nest = TRUE)</code>), después de realizar todas las recodificaciones. Dos decisiones adicionales siguen las indicaciones del manual y de la literatura especializada. Primero, los estratos con un único conglomerado aportan varianza cero (<code>survey.lonely.psu = "certainty"</code>, equivalente a <code>singleunit(certainty)</code> en Stata). Segundo, el análisis de la muestra analítica y de subgrupos se realiza filtrando sobre el diseño y no sobre la base de datos, porque filtrar la base subestima la varianza.</p>
+<p>El diseño se declaró con el paquete <code>survey</code> <span class="citation" data-cites="lumley_2004">(<a href="referencias.html#ref-lumley_2004" role="doc-biblioref">Lumley, 2004</a>)</span>, a través de <code>srvyr</code>, tal como recomienda el manual (<code>as_survey(weights = pond, strata = estrato, ids = secu, nest = TRUE)</code>), después de realizar todas las recodificaciones. Dos decisiones adicionales siguen las indicaciones del manual y de la literatura especializada. Primero, los estratos con un único conglomerado aportan varianza cero (<code>survey.lonely.psu = "certainty"</code>, equivalente a <code>singleunit(certainty)</code> en Stata). Segundo, el análisis de la muestra analítica y de subgrupos se realiza filtrando sobre el diseño y no sobre la base de datos, porque filtrar la base subestima la varianza.</p>
 </section>
 </section>
 <section id="sec-variables" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-variables"><span class="header-section-number">3.2</span> Variables</h2>
-<p>La <a href="#tbl-operacionalizacion" class="quarto-xref">Tabla&nbsp;<span>3.1</span></a> resume las variables del estudio, su fuente, las olas en que están disponibles y el tratamiento aplicado. Las categorías finales de cada variable y su distribución en la base completa se presentan en la <a href="#tbl-descriptiva" class="quarto-xref">Tabla&nbsp;<span>3.2</span></a>, en la sección de muestra analítica.</p>
+<p>La <a href="#tbl-operacionalizacion" class="quarto-xref">Tabla&nbsp;<span>3.1</span></a> resume las variables del estudio, su fuente, las olas en que están disponibles y el tratamiento aplicado. Las categorías finales de cada variable y su distribución en la muestra analítica se presentan en la <a href="#tbl-descriptiva" class="quarto-xref">Tabla&nbsp;<span>3.2</span></a>.</p>
 <div id="tbl-operacionalizacion" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[16,9,11,10,30,24]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-operacionalizacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -374,42 +394,34 @@ Tabla&nbsp;3.1: Operacionalización de las variables
 <td>H1</td>
 <td>CEP</td>
 <td>1999, 2009, 2019</td>
-<td>Tramo de ingreso total del hogar. ¿Cuántas personas viven permanentemente en este hogar?</td>
-<td>Punto medio del tramo dividido por el número de personas; decil ponderado dentro de cada ola (continua, 1 a 10)</td>
+<td>Tramo de ingreso personal. Si no responde: tramo de ingreso total del hogar y ¿cuántas personas viven permanentemente en este hogar?</td>
+<td>Punto medio del tramo personal o, si no responde, punto medio del tramo del hogar dividido por el número de personas; decil ponderado dentro de cada ola; dummies: deciles 1 a 9 (referencia), decil 10 y no reporta</td>
 </tr>
 <tr class="odd">
-<td>Percepción de meritocracia, alternativa 1</td>
+<td>Percepción de meritocracia</td>
 <td>H2</td>
 <td>CEP</td>
-<td>1999</td>
-<td>En Chile las personas son remuneradas, es decir se les paga, por sus esfuerzos.</td>
-<td>Invertida (5 = muy de acuerdo); ordinal, factor con 1 como referencia</td>
+<td>1999, 2009, 2019</td>
+<td>1999: “En Chile las personas son remuneradas, es decir se les paga, por sus esfuerzos”. 2009 y 2019: “Para surgir en la vida, ¿cuán importante cree Ud. que es el trabajo duro?”</td>
+<td>Ítems categóricos invertidos (5 = mayor apoyo al esfuerzo), unidos en una sola variable y transformada a continua (1 a 5)</td>
 </tr>
 <tr class="even">
-<td>Percepción de meritocracia, alternativas 1 y 2</td>
-<td>H2</td>
-<td>CEP</td>
-<td>2009, 2019</td>
-<td>Para surgir en la vida, ¿cuán importante cree Ud. que es el trabajo duro?</td>
-<td>Invertida (5 = esencial); ordinal, factor con 1 como referencia</td>
-</tr>
-<tr class="odd">
 <td>Percepción de brecha salarial</td>
-<td>H3</td>
+<td>H4</td>
 <td>CEP (2009, 2019); ISSP (1999)</td>
 <td>1999, 2009, 2019</td>
 <td>¿Cuánto cree Ud. que gana el presidente de una gran empresa nacional? ¿Y un obrero no calificado de una fábrica?</td>
 <td>Montos fuera de rango como perdidos; logaritmo de la razón presidente / obrero</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Posición política</td>
 <td>Control</td>
 <td>CEP</td>
 <td>1999, 2009, 2019</td>
 <td>¿Con cuál se identifica más o con cuál posición simpatiza Ud. más?</td>
-<td>Cuatro categorías; factor con izquierda como referencia</td>
+<td>Cuatro categorías (izquierda, centro, derecha y sin posición); factor con izquierda como referencia</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Estatus social subjetivo</td>
 <td>Control</td>
 <td>CEP (1999); ISSP (2009, 2019)</td>
@@ -417,37 +429,37 @@ Tabla&nbsp;3.1: Operacionalización de las variables
 <td>¿Dónde se ubicaría Ud. en esta escala?</td>
 <td>Escala de 1 a 10 llevada a un mismo sentido (10 = alto)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Sexo</td>
 <td>Control</td>
 <td>CEP</td>
 <td>1999, 2009, 2019</td>
 <td>Sexo de la persona entrevistada</td>
-<td>Hombre (referencia), mujer</td>
+<td>Hombre (referencia), Mujer</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Edad</td>
 <td>Control</td>
 <td>CEP</td>
 <td>1999, 2009, 2019</td>
 <td>Edad exacta</td>
-<td>Tres tramos (29 años o menos, 30 a 59, 60 o más)</td>
+<td>Continua y al cuadrado (dividida por 100)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Educación</td>
 <td>Control</td>
 <td>CEP</td>
 <td>1999, 2009, 2019</td>
 <td>Nivel educacional alcanzado</td>
-<td>Completó educación superior o no</td>
+<td>Recodificada en dos categorías: educación superior completa (universitaria, no universitaria, postgrado) y sin educación superior completa</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Año de la encuesta</td>
-<td>H4</td>
+<td>H5</td>
 <td>CEP</td>
 <td>1999, 2009, 2019</td>
 <td>No corresponde</td>
-<td>Factor con 1999 como referencia</td>
+<td>Factor de tres categorías: 1999 (referencia), 2009 y 2019</td>
 </tr>
 </tbody>
 </table>
@@ -460,20 +472,20 @@ Tabla&nbsp;3.1: Operacionalización de las variables
 </section>
 <section id="sec-vi" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="sec-vi"><span class="header-section-number">3.2.2</span> Variables independientes</h3>
-<p><strong>Posición socioeconómica (H1)</strong>. Se mide a través del ingreso per cápita del hogar, calculado dividiendo el punto medio del tramo de ingreso reportado por el número de integrantes del hogar. Los tramos de 1999 son distintos a los de 2009 y 2019 (estas dos olas comparten los mismos montos nominales), por lo que los montos no son comparables entre años. Por ello, el ingreso per cápita se transformó en deciles ponderados dentro de cada ola, y entra a los modelos como variable continua de 1 a 10. Con esta medida, H1 se plantea en términos de posición relativa y no del monto de ingreso. Los casos que no informan tramo de ingreso quedan fuera de la muestra analítica.</p>
+<p><strong>Posición socioeconómica (H1)</strong>. Se mide a partir del tramo de ingreso personal de la persona entrevistada, que se prioriza por la precisión de la respuesta y porque corresponde al ingreso de quien responde la encuesta. Si no responde esa pregunta, se utiliza el ingreso per cápita del hogar, calculado dividiendo el punto medio del tramo de ingreso del hogar por el número de integrantes. En 1999, quienes declaran no tener ningún tipo de ingreso se tratan como casos sin ingreso personal y pasan al cálculo del hogar; esa categoría de respuesta solo existe en esa ola. El ingreso proviene del tramo personal en 943 casos en 1999, 1.146 en 2009 y 856 en 2019, del hogar en 376, 110 y 27, y no se informa en 184, 249 y 497 casos, respectivamente. Los tramos de 1999 son distintos a los de 2009 y 2019 (estas dos olas comparten los mismos montos nominales), por lo que los montos no son comparables entre años. Por ello, el ingreso se transformó en deciles ponderados dentro de cada ola, de modo que H1 se plantea en términos de posición relativa y no del monto de ingreso. Entra a los modelos como tres categorías: deciles 1 a 9 (referencia), decil 10 y no reporta. Se distingue el decil 10 porque es el grupo que habitualmente se contrasta con el resto de las posiciones. La categoría no reporta reúne a quienes no responden ninguna de las dos preguntas; su función es controlar la no respuesta y no se interpreta, y gracias a ella estos casos permanecen en la muestra analítica.</p>
 <p><strong>Percepción de meritocracia (H2)</strong>. Su medición se describe en una sección aparte (<a href="#sec-meritocracia" class="quarto-xref"><span>Sección 3.2.4</span></a>).</p>
-<p><strong>Percepción de brecha salarial (H3)</strong>. Su medición se describe en una sección aparte (<a href="#sec-brecha" class="quarto-xref"><span>Sección 3.2.5</span></a>).</p>
-<p><strong>Año de la encuesta (H4)</strong>. Entra como factor, con 1999 como categoría de referencia.</p>
-<p><strong>Interacción entre posición socioeconómica y percepción de meritocracia (H5)</strong>. Se incluye como el producto entre el decil de ingreso y cada categoría de percepción de meritocracia (<a href="#sec-estrategia" class="quarto-xref"><span>Sección 3.4</span></a>).</p>
+<p><strong>Interacción entre posición socioeconómica y percepción de meritocracia (H3)</strong>. Se incluye como el producto entre la categoría decil 10 del ingreso y la percepción de meritocracia continua. Se limita al decil 10 porque la interacción con la categoría no reporta no tiene sentido teórico, ya que esta cumple solo una función de control. Aun así, la interacción de no reporta con la percepción de meritocracia se mantiene en el modelo como término de ajuste, sin interpretarla, para evitar problemas de medición: así la pendiente de la categoría de referencia (deciles 1 a 9) no queda mezclada con la de quienes no informan su ingreso. Dado el tipo de modelo, la interacción se interpreta mediante efectos marginales promedio (<a href="#sec-estrategia" class="quarto-xref"><span>Sección 3.4</span></a>).</p>
+<p><strong>Percepción de brecha salarial (H4)</strong>. Su medición se describe en una sección aparte (<a href="#sec-brecha" class="quarto-xref"><span>Sección 3.2.5</span></a>).</p>
+<p><strong>Cambio en el tiempo (H5)</strong>. Se mide con el año de la encuesta (1999, 2009 y 2019), que entra a los modelos como factor, con 1999 como categoría de referencia. Esta medida expresa diferencias de nivel entre momentos y no la exposición individual a un cambio institucional (<a href="02-antecedentes.html#sec-ant-h4" class="quarto-xref"><span>Sección 2.4</span></a>).</p>
 </section>
 <section id="sec-controles" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="sec-controles"><span class="header-section-number">3.2.3</span> Variables de control</h3>
 <ul>
-<li><strong>Posición política</strong>: izquierda (incluye centro izquierda), centro, derecha (incluye centro derecha) y sin posición política (independiente y ninguna). Entra a los modelos como factor, con izquierda como categoría de referencia.</li>
-<li><strong>Estatus social subjetivo</strong>: autoubicación en la jerarquía social en una escala de 1 (nivel más bajo) a 10 (nivel más alto). En 2009 y 2019 proviene de la ISSP (<a href="#sec-recuperacion" class="quarto-xref"><span>Sección 3.1.2</span></a>). Como la CEP codifica la escala en sentido inverso al de la ISSP, todas las olas se llevaron a un mismo sentido.</li>
-<li><strong>Sexo</strong>: hombre (referencia) y mujer.</li>
-<li><strong>Edad</strong>: en tramos (jóvenes, 29 años o menos; adultos, entre 30 y 59 años; adultos mayores, 60 años o más).</li>
-<li><strong>Educación</strong>: completó educación superior o no la completó.</li>
+<li><p><strong>Posición política</strong>: izquierda (incluye centro izquierda), centro, derecha (incluye centro derecha) y sin posición política (independiente y ninguna). Entra a los modelos como factor, con izquierda como categoría de referencia.</p></li>
+<li><p><strong>Estatus social subjetivo</strong>: autoubicación en la jerarquía social en una escala de 1 (nivel más bajo) a 10 (nivel más alto). En 2009 y 2019 proviene de la ISSP (<a href="#sec-recuperacion" class="quarto-xref"><span>Sección 3.1.2</span></a>). Como la CEP codifica la escala en sentido inverso al de la ISSP, todas las olas se llevaron a un mismo sentido.</p></li>
+<li><p><strong>Sexo</strong>: hombre (referencia) y mujer.</p></li>
+<li><p><strong>Edad</strong>: continua y al cuadrado (el término cuadrático se divide por 100 para que el modelo converja). El término cuadrático permite que la asociación con la justicia de mercado varíe a lo largo de la vida, por ejemplo aumentando en la edad laboral y disminuyendo en la vejez.</p></li>
+<li><p><strong>Educación</strong>: completó educación superior (universitaria, no universitaria, postgrado, magíster o doctorado) o no la completó.</p></li>
 </ul>
 </section>
 <section id="sec-meritocracia" class="level3" data-number="3.2.4">
@@ -485,9 +497,8 @@ Tabla&nbsp;3.1: Operacionalización de las variables
 <li><code>pobreza_42</code>: qué debería importar al decidir cuánto gana la gente. Es una medida normativa (cómo debería ser), no una percepción, por lo que se descartó para H2.</li>
 </ul>
 <p>Una versión previa del análisis operaba la percepción de meritocracia como un índice de los ítems de provenir de una familia rica y de conocer a las personas adecuadas, invertidos. Se descartó por dos razones. La primera es conceptual: ambos ítems miden privilegio, no el valor que se asigna al esfuerzo. La segunda es empírica: la coherencia interna del índice fue baja (r de Pearson entre ítems de 0,36 en 1999, 0,15 en 2009 y 0,18 en 2019; alfa de 0,53, 0,27 y 0,30).</p>
-<p>El ítem que mejor se ajusta al concepto de meritocracia como creencia en que el esfuerzo se recompensa es el trabajo duro. No existe un ítem idéntico en las tres olas, por lo que se plantean dos alternativas.</p>
-<p><strong>Alternativa 1: ítems análogos entre olas.</strong> Se usa <code>pobreza_30_a</code> en 1999 (“En Chile las personas son remuneradas, es decir se les paga, por sus esfuerzos”; escala de acuerdo) y <code>pobreza_68_e</code> en 2009 y 2019 (“Para surgir en la vida, ¿cuán importante cree Ud. que es el trabajo duro?”; escala de importancia). Permite conservar las tres olas, pero los dos ítems difieren en el enunciado, en la escala y en el constructo (lo que se premia en Chile frente a lo que importa para surgir), por lo que la equivalencia entre ambos es un supuesto.</p>
-<p><strong>Alternativa 2: un único ítem.</strong> Se usa <code>pobreza_68_e</code> y la hipótesis H2 se evalúa solo con 2009 y 2019. Evita asumir equivalencia entre ítems, pero excluye a 1999 de los modelos que incluyen la meritocracia.</p>
+<p>El ítem que mejor se ajusta al concepto de meritocracia como creencia en que el esfuerzo se recompensa es el trabajo duro. La medición elegida combina dos ítems: <code>pobreza_30_a</code> en 1999 (“En Chile las personas son remuneradas, es decir se les paga, por sus esfuerzos”) y <code>pobreza_68_e</code> en 2009 y 2019 (“Para surgir en la vida, ¿cuán importante cree Ud. que es el trabajo duro?”). Ambos se invirtieron, de modo que 5 indica mayor apoyo al esfuerzo, y se unieron en una sola variable. Aunque las preguntas originales son categóricas, la variable unificada se trató como continua (1 a 5) por razones prácticas, para no multiplicar las categorías en los modelos, en particular en la interacción.</p>
+<p>Usar dos ítems distintos tiene un costo. Difieren en el enunciado, en la escala de respuesta (acuerdo en 1999 e importancia en 2009 y 2019) y en el constructo que miden (lo que se premia en Chile frente a lo que importa para surgir). Se aceptó porque es la pregunta más cercana al concepto disponible en 1999, y no usarla implicaba perder la ola completa. Como consecuencia, la media de la variable sube de 2,87 en 1999 a 3,82 en 2009 (base completa, sin ponderar), y no es posible separar cuánto de ese aumento corresponde a un cambio de percepción y cuánto al cambio de ítem. Esto se considera una limitación del estudio.</p>
 </section>
 <section id="sec-brecha" class="level3" data-number="3.2.5">
 <h3 data-number="3.2.5" class="anchored" data-anchor-id="sec-brecha"><span class="header-section-number">3.2.5</span> Percepción de brecha salarial</h3>
@@ -498,1143 +509,497 @@ Tabla&nbsp;3.1: Operacionalización de las variables
 </section>
 <section id="sec-muestra" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="sec-muestra"><span class="header-section-number">3.3</span> Muestra analítica</h2>
-<p>Los modelos se estiman con los casos que tienen información en todas las variables incluidas (casos completos). Con la alternativa 1 de meritocracia, la muestra analítica es de 2.350 casos de 4.388 posibles, distribuidos en 748 casos en 1999, 983 en 2009 y 619 en 2019. Con la alternativa 2, que excluye 1999, es de 1.602 casos (<a href="#tbl-muestra" class="quarto-xref">Tabla&nbsp;<span>3.3</span></a>). La pérdida de casos se explica principalmente por la brecha salarial en 1999 y el ingreso en 2019. La <a href="#tbl-descriptiva" class="quarto-xref">Tabla&nbsp;<span>3.2</span></a> presenta, para cada variable del modelo, sus categorías finales, el número de casos válidos, el porcentaje de casos perdidos y un resumen de su distribución.</p>
+<p>Los modelos se estiman con los casos que tienen información en todas las variables incluidas (casos completos). La muestra analítica reúne 3010 casos de 4388 (837 en 1999, 1220 en 2009 y 953 en 2019). La pérdida de casos se explica principalmente por la brecha salarial en las tres olas, ya que una parte importante de las personas no informa el ingreso del presidente de empresa (<a href="#sec-brecha" class="quarto-xref"><span>Sección 3.2.5</span></a>). El ingreso no resta casos, porque quienes no lo informan quedan en la categoría no reporta. El detalle de los casos perdidos por variable y ola se presenta en el material complementario (<a href="apendices/a-materiales.html#tbl-perdidos" class="quarto-xref">Tabla&nbsp;<span>A.1</span></a>). La <a href="#tbl-descriptiva" class="quarto-xref">Tabla&nbsp;<span>3.2</span></a> presenta, para cada variable del modelo, sus categorías finales y un resumen de su distribución.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Ver código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin_titulo</span>(tablas_met<span class="sc">$</span>descriptiva)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (knitr<span class="sc">::</span><span class="fu">is_html_output</span>()) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(tablas_met<span class="sc">$</span>dfsummary, <span class="at">method =</span> <span class="st">"render"</span>, <span class="at">headings =</span> <span class="cn">FALSE</span>, <span class="at">footnote =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">bootstrap.css =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(tablas_met<span class="sc">$</span>dfsummary, <span class="at">method =</span> <span class="st">"pander"</span>, <span class="at">headings =</span> <span class="cn">FALSE</span>, <span class="at">graph.col =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">plain.ascii =</span> <span class="cn">FALSE</span>, <span class="at">style =</span> <span class="st">"grid"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-descriptiva" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-descriptiva-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;3.2: Variables del estudio: casos válidos, casos perdidos por ola y distribución (sin ponderar)
+Tabla&nbsp;3.2: Variables del modelo en la muestra analítica (sin ponderar)
 </figcaption>
 <div aria-describedby="tbl-descriptiva-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="vshcfkdhgt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vshcfkdhgt table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#vshcfkdhgt thead, #vshcfkdhgt tbody, #vshcfkdhgt tfoot, #vshcfkdhgt tr, #vshcfkdhgt td, #vshcfkdhgt th {
-  border-style: none;
-}
-
-#vshcfkdhgt p {
-  margin: 0;
-  padding: 0;
-}
-
-#vshcfkdhgt .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#vshcfkdhgt .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#vshcfkdhgt .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#vshcfkdhgt .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#vshcfkdhgt .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#vshcfkdhgt .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#vshcfkdhgt .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#vshcfkdhgt .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#vshcfkdhgt .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#vshcfkdhgt .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#vshcfkdhgt .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#vshcfkdhgt .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#vshcfkdhgt .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#vshcfkdhgt .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#vshcfkdhgt .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vshcfkdhgt .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#vshcfkdhgt .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#vshcfkdhgt .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#vshcfkdhgt .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vshcfkdhgt .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#vshcfkdhgt .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vshcfkdhgt .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#vshcfkdhgt .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vshcfkdhgt .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#vshcfkdhgt .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vshcfkdhgt .gt_left {
-  text-align: left;
-}
-
-#vshcfkdhgt .gt_center {
-  text-align: center;
-}
-
-#vshcfkdhgt .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#vshcfkdhgt .gt_font_normal {
-  font-weight: normal;
-}
-
-#vshcfkdhgt .gt_font_bold {
-  font-weight: bold;
-}
-
-#vshcfkdhgt .gt_font_italic {
-  font-style: italic;
-}
-
-#vshcfkdhgt .gt_super {
-  font-size: 65%;
-}
-
-#vshcfkdhgt .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#vshcfkdhgt .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#vshcfkdhgt .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#vshcfkdhgt .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#vshcfkdhgt .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#vshcfkdhgt .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#vshcfkdhgt .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#vshcfkdhgt .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#vshcfkdhgt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings gt_spanner_row header">
-<th rowspan="2" id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Variable</th>
-<th rowspan="2" id="Categorias" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Categorías o rango</th>
-<th rowspan="2" id="n_valido" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">N válido</th>
-<th colspan="3" id="% perdidos" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
-% perdidos
-</div></th>
-<th rowspan="2" id="Distribucion" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Distribución</th>
-</tr>
-<tr class="gt_col_headings even">
-<th id="perdidos_1999" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">1999</th>
-<th id="perdidos_2009" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">2009</th>
-<th id="perdidos_2019" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">2019</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="gt_group_heading_row odd">
-<th colspan="7" id="Variable dependiente" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Variable dependiente</th>
-</tr>
-<tr class="gt_row_group_first even">
-<td class="gt_row gt_left" headers="Variable dependiente  Variable">Justicia de mercado en salud</td>
-<td class="gt_row gt_left" headers="Variable dependiente  Categorias">1 = muy injusto a 5 = muy justo</td>
-<td class="gt_row gt_right" headers="Variable dependiente  n_valido">4.244</td>
-<td class="gt_row gt_left" headers="Variable dependiente  perdidos_1999">4,3%</td>
-<td class="gt_row gt_left" headers="Variable dependiente  perdidos_2009">2,7%</td>
-<td class="gt_row gt_left" headers="Variable dependiente  perdidos_2019">2,8%</td>
-<td class="gt_row gt_left" headers="Variable dependiente  Distribucion">Muy injusto: 32,8%<br>
-Algo injusto: 24,4%<br>
-Ni justo ni injusto: 16,0%<br>
-Algo justo: 15,4%<br>
-Muy justo: 11,4%</td>
-</tr>
-<tr class="gt_group_heading_row odd">
-<th colspan="7" id="Variables independientes" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Variables independientes</th>
-</tr>
-<tr class="gt_row_group_first even">
-<td class="gt_row gt_left" headers="Variables independientes  Variable">Decil de ingreso per cápita (H1)</td>
-<td class="gt_row gt_left" headers="Variables independientes  Categorias">1 a 10 (continua)</td>
-<td class="gt_row gt_right" headers="Variables independientes  n_valido">3.326</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_1999">14,2%</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_2009">21,2%</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_2019">38,4%</td>
-<td class="gt_row gt_left" headers="Variables independientes  Distribucion">Media = 5,49<br>
-DE = 2,84</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Variables independientes  Variable">Meritocracia, alternativa 1 (H2): esfuerzo remunerado</td>
-<td class="gt_row gt_left" headers="Variables independientes  Categorias">1 = muy en desacuerdo a 5 = muy de acuerdo</td>
-<td class="gt_row gt_right" headers="Variables independientes  n_valido">1.465</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_1999">2,5%</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_2009">No aplica</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_2019">No aplica</td>
-<td class="gt_row gt_left" headers="Variables independientes  Distribucion">Muy en desacuerdo: 8,5%<br>
-En desacuerdo: 41,8%<br>
-Ni de acuerdo ni en desacuerdo: 10,9%<br>
-De acuerdo: 31,5%<br>
-Muy de acuerdo: 7,3%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Variables independientes  Variable">Meritocracia, alternativas 1 y 2 (H2): trabajo duro</td>
-<td class="gt_row gt_left" headers="Variables independientes  Categorias">1 = no es importante a 5 = esencial</td>
-<td class="gt_row gt_right" headers="Variables independientes  n_valido">2.857</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_1999">No aplica</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_2009">1,1%</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_2019">0,9%</td>
-<td class="gt_row gt_left" headers="Variables independientes  Distribucion">No es importante: 3,0%<br>
-No muy importante: 7,8%<br>
-Bastante importante: 18,7%<br>
-Muy importante: 46,5%<br>
-Esencial: 24,0%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Variables independientes  Variable">Brecha salarial percibida (H3)</td>
-<td class="gt_row gt_left" headers="Variables independientes  Categorias">Logaritmo de la razón presidente / obrero (continua)</td>
-<td class="gt_row gt_right" headers="Variables independientes  n_valido">3.213</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_1999">40,7%</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_2009">13,3%</td>
-<td class="gt_row gt_left" headers="Variables independientes  perdidos_2019">26,3%</td>
-<td class="gt_row gt_left" headers="Variables independientes  Distribucion">Media = 3,39<br>
-DE = 1,07</td>
-</tr>
-<tr class="gt_group_heading_row even">
-<th colspan="7" id="Controles" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Controles</th>
-</tr>
-<tr class="gt_row_group_first odd">
-<td class="gt_row gt_left" headers="Controles  Variable">Posición política</td>
-<td class="gt_row gt_left" headers="Controles  Categorias">Izquierda (ref.), centro, derecha, sin posición</td>
-<td class="gt_row gt_right" headers="Controles  n_valido">4.166</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_1999">6,0%</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_2009">4,1%</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_2019">5,1%</td>
-<td class="gt_row gt_left" headers="Controles  Distribucion">Izquierda: 21,3%<br>
-Centro: 9,9%<br>
-Derecha: 17,6%<br>
-Sin posición: 51,3%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Controles  Variable">Estatus social subjetivo</td>
-<td class="gt_row gt_left" headers="Controles  Categorias">1 (bajo) a 10 (alto)</td>
-<td class="gt_row gt_right" headers="Controles  n_valido">4.358</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_1999">0,0%</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_2009">1,0%</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_2019">1,1%</td>
-<td class="gt_row gt_left" headers="Controles  Distribucion">Media = 4,14<br>
-DE = 1,72</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Controles  Variable">Sexo</td>
-<td class="gt_row gt_left" headers="Controles  Categorias">Hombre (ref.), mujer</td>
-<td class="gt_row gt_right" headers="Controles  n_valido">4.388</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_1999">0,0%</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_2009">0,0%</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_2019">0,0%</td>
-<td class="gt_row gt_left" headers="Controles  Distribucion">Hombre: 41,0%<br>
-Mujer: 59,0%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Controles  Variable">Edad</td>
-<td class="gt_row gt_left" headers="Controles  Categorias">29 años o menos, 30 a 59, 60 o más</td>
-<td class="gt_row gt_right" headers="Controles  n_valido">4.388</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_1999">0,0%</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_2009">0,0%</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_2019">0,0%</td>
-<td class="gt_row gt_left" headers="Controles  Distribucion">Jóvenes: 20,6%<br>
-Adultos: 52,3%<br>
-Adultos mayores: 27,1%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Controles  Variable">Educación</td>
-<td class="gt_row gt_left" headers="Controles  Categorias">No completó (ref.) o completó educación superior</td>
-<td class="gt_row gt_right" headers="Controles  n_valido">4.353</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_1999">1,1%</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_2009">0,5%</td>
-<td class="gt_row gt_left" headers="Controles  perdidos_2019">0,8%</td>
-<td class="gt_row gt_left" headers="Controles  Distribucion">No completó: 83,4%<br>
-Completó: 16,6%</td>
-</tr>
-</tbody><tfoot>
-<tr class="gt_sourcenotes odd">
-<td colspan="7" class="gt_sourcenote">Base completa sin ponderar (n = 4.388). N válido y distribución se calculan sobre las olas en que se aplicó la pregunta. Fuente: Encuestas CEP 39 (1999), 59 (2009) y 83 (2019); ISSP 1999, 2009 y 2019 para la brecha salarial (1999) y el estatus subjetivo (2009 y 2019).</td>
-</tr>
-</tfoot>
-
-</table>
-
-</div>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Ver código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin_titulo</span>(tablas_met<span class="sc">$</span>muestra)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div id="tbl-muestra" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-muestra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;3.3: Muestra analítica por ola según la variable de meritocracia
-</figcaption>
-<div aria-describedby="tbl-muestra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<div id="jsafrysybr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jsafrysybr table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#jsafrysybr thead, #jsafrysybr tbody, #jsafrysybr tfoot, #jsafrysybr tr, #jsafrysybr td, #jsafrysybr th {
-  border-style: none;
-}
-
-#jsafrysybr p {
-  margin: 0;
-  padding: 0;
-}
-
-#jsafrysybr .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#jsafrysybr .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#jsafrysybr .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#jsafrysybr .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#jsafrysybr .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#jsafrysybr .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#jsafrysybr .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#jsafrysybr .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#jsafrysybr .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#jsafrysybr .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#jsafrysybr .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#jsafrysybr .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#jsafrysybr .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#jsafrysybr .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#jsafrysybr .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jsafrysybr .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#jsafrysybr .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#jsafrysybr .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#jsafrysybr .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jsafrysybr .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#jsafrysybr .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jsafrysybr .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#jsafrysybr .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jsafrysybr .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#jsafrysybr .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jsafrysybr .gt_left {
-  text-align: left;
-}
-
-#jsafrysybr .gt_center {
-  text-align: center;
-}
-
-#jsafrysybr .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#jsafrysybr .gt_font_normal {
-  font-weight: normal;
-}
-
-#jsafrysybr .gt_font_bold {
-  font-weight: bold;
-}
-
-#jsafrysybr .gt_font_italic {
-  font-style: italic;
-}
-
-#jsafrysybr .gt_super {
-  font-size: 65%;
-}
-
-#jsafrysybr .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#jsafrysybr .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#jsafrysybr .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#jsafrysybr .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#jsafrysybr .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#jsafrysybr .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#jsafrysybr .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#jsafrysybr .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#jsafrysybr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<div class="container st-container">
+<table class="table table-striped table-bordered st-table st-table-striped st-table-bordered st-multiline cell caption-top table-sm small">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
-<tr class="gt_col_headings gt_spanner_row header">
-<th rowspan="2" id="Ola" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Ola</th>
-<th rowspan="2" id="total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Casos en la base</th>
-<th colspan="3" id="Casos completos (% de la ola)" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
-Casos completos (% de la ola)
-</div></th>
-</tr>
-<tr class="gt_col_headings even">
-<th id="sin_h2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sin H2</th>
-<th id="alt_1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Con H2, alternativa 1</th>
-<th id="alt_2" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Con H2, alternativa 2</th>
+<tr class="header">
+<th class="st-protect-top-border" style="text-align: center;" data-quarto-table-cell-role="th"><strong>Variable</strong></th>
+<th class="st-protect-top-border" style="text-align: center;" data-quarto-table-cell-role="th"><strong>Estadísticas / Valores</strong></th>
+<th class="st-protect-top-border" style="text-align: center;" data-quarto-table-cell-role="th"><strong>Frec. (% sobre válidos)</strong></th>
+<th class="st-protect-top-border" style="text-align: center;" data-quarto-table-cell-role="th"><strong>Gráfico</strong></th>
 </tr>
 </thead>
-<tbody class="gt_table_body">
+<tbody>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Ola">1999</td>
-<td class="gt_row gt_right" headers="total">1.503</td>
-<td class="gt_row gt_right" headers="sin_h2">750 (49,9%)</td>
-<td class="gt_row gt_right" headers="alt_1">748 (49,8%)</td>
-<td class="gt_row gt_left" headers="alt_2">No aplica</td>
+<td style="text-align: left;">Justicia de mercado en salud [ordered, factor]</td>
+<td style="text-align: left; padding: 8; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. Muy injusto</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. Algo injusto</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">3. Ni justo ni injusto</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">4. Algo justo</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">5. Muy justo</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; padding: 0; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1017</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">33.8%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">734</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">24.4%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">464</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">15.4%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">461</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">15.3%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">334</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">11.1%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAADUAAABmBAMAAACZ0sQaAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfqCh4HLDsMCD5GAAAAWklEQVRIx2NgoD9QwgIUoHLKxphgVG5wyeGLP0EsQIAIOTTjUORQ3WI0KjcI5fDFH7lpgqj0oogpB3fnqNyAyuGLo9E0MSpHj/SCXB5hd4vRqNwglsMXf/QEAHlA/2nbTF2VAAAAAElFTkSuQmCC" class="img-fluid figure-img" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Ola">2009</td>
-<td class="gt_row gt_right" headers="total">1.505</td>
-<td class="gt_row gt_right" headers="sin_h2">987 (65,6%)</td>
-<td class="gt_row gt_right" headers="alt_1">983 (65,3%)</td>
-<td class="gt_row gt_left" headers="alt_2">983 (65,3%)</td>
+<td style="text-align: left;">Ingreso (H1) [factor]</td>
+<td style="text-align: left; padding: 8; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. Deciles 1 a 9</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. Decil 10</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">3. No reporta</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; padding: 0; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">2159</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">71.7%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">286</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">9.5%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">565</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">18.8%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAGIAAAA/BAMAAADpmwAUAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfqCh4HLDsMCD5GAAAAT0lEQVRIx2NgGD5AiXgA1aFsTCwwGtUxqmOI6yA9fwgSD8jWAbGQFB1gnxuN6hjVMRJ0kJ4/iFJLoQ6kskKRBJ9DwKiOUR3DXAfp+WM4AAAMQhq/ZVqRoQAAAABJRU5ErkJggg==" class="img-fluid figure-img" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Ola">2019</td>
-<td class="gt_row gt_right" headers="total">1.380</td>
-<td class="gt_row gt_right" headers="sin_h2">619 (44,9%)</td>
-<td class="gt_row gt_right" headers="alt_1">619 (44,9%)</td>
-<td class="gt_row gt_left" headers="alt_2">619 (44,9%)</td>
+<td style="text-align: left;">Percepción de meritocracia (H2) [numeric]</td>
+<td style="text-align: left; padding: 8; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">Media (d-s) : 3.5 (1.15)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">min ≤ mediana ≤ max:</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1 ≤ 4 ≤ 5</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">RI (CV) : 1 (0.33)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; padding: 0; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">1</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">153</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">5.1%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">2</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">565</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">18.8%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">3</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">491</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">16.3%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">4</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">1213</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">40.3%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">5</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">588</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">19.5%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAD0AAABmBAMAAACKBYTuAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfqCh4HLDsMCD5GAAAAbUlEQVRIx+3Tyw2AMAwD0I5AN6BmA7r/bnDgIyDFlYpUEdnXd4lkJ4T+AZCikWHzKWe5Y2f9x0JqHWeS5et9e+QOnfXfuq/6/dl+3D/L/+is39b9MEch4/M/LpH7cNb/l/t6/Y/bh8h9OOu/ZxZyVhhfvlAMcQAAAABJRU5ErkJggg==" class="img-fluid figure-img" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Ola">Total</td>
-<td class="gt_row gt_right" headers="total">4.388</td>
-<td class="gt_row gt_right" headers="sin_h2">2.356 (53,7%)</td>
-<td class="gt_row gt_right" headers="alt_1">2.350 (53,6%)</td>
-<td class="gt_row gt_left" headers="alt_2">1.602 (36,5%)</td>
+<td style="text-align: left;">Brecha salarial percibida, log (H3) [numeric]</td>
+<td style="text-align: left; padding: 8; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">Media (d-s) : 3.41 (1.06)</td>
 </tr>
-</tbody><tfoot>
-<tr class="gt_sourcenotes odd">
-<td colspan="5" class="gt_sourcenote">Casos completos en justicia de mercado en salud, decil de ingreso, brecha salarial, posición política, estatus subjetivo, sexo, edad y educación; las columnas con H2 agregan el ítem de meritocracia correspondiente. Sin ponderar.</td>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">min ≤ mediana ≤ max:</td>
 </tr>
-</tfoot>
-
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">-0.29 ≤ 3.4 ≤ 7.13</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">RI (CV) : 1.46 (0.31)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; vertical-align: middle;">401 valores distintos</td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHwAAABaBAMAAACIxS+mAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfqCh4HLQCkGOYjAAAApElEQVRYw+3X2w2AIAwFUFbADZQN7P67idJEGqqR8gGRe0P84iTa8KjOzR2vZYvxfonP1T/kjQeiPXIiAgefh8f90sKv0crT1jXzVAVwcPB/8vNWb+GMwMHB+3C1L//O1SYDfCi+pV7SykOOwMG78vKfpIqXJ+Zg/G6pbFzO/heXd1U1l4uvA8/WroVnFZRcHPCvnCvInN8nKLN1zt+QcUvc3DkAbbDziedpvL0AAAAASUVORK5CYII=" class="img-fluid figure-img" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Año de la encuesta (H4) [factor]</td>
+<td style="text-align: left; padding: 8; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. 1999</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. 2009</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">3. 2019</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; padding: 0; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">837</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">27.8%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1220</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">40.5%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">953</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">31.7%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAD0AAAA/BAMAAAChhN3RAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfqCh4HLQCkGOYjAAAARUlEQVQ4y2NgGHighA4EIUAAKq9sjAqMRuWHlTyh+BfEAYiVV8IBFHC4DwZG5YeHPKH4p0H6UsSX/oFgVH4YyROK/4EEAC5C2dofc/KUAAAAAElFTkSuQmCC" class="img-fluid figure-img" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Posición política [factor]</td>
+<td style="text-align: left; padding: 8; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. Izquierda</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. Centro</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">3. Derecha</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">4. Sin posición</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; padding: 0; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">709</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">23.6%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">339</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">11.3%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">595</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">19.8%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1367</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">45.4%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAEMAAABTBAMAAAA2MqfbAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfqCh4HLQCkGOYjAAAAYElEQVRIx2NgGFxACQUoCiIBAagSZWNkMKpkRCshIr0I4gbUVQJ1BD4lEB8ZjSoZ9kqISAyCuAFNEiY2B2HJakajSoazEiISAxFJijpKlHADBUwfoYNRJSNNCRHpZbAAAG9aBpedpECaAAAAAElFTkSuQmCC" class="img-fluid figure-img" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Estatus social subjetivo [numeric]</td>
+<td style="text-align: left; padding: 8; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">Media (d-s) : 4.31 (1.64)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">min ≤ mediana ≤ max:</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1 ≤ 4 ≤ 10</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">RI (CV) : 2 (0.38)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; padding: 0; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">1</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">185</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">6.1%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">2</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">220</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">7.3%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">3</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">493</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">16.4%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">4</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">651</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">21.6%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">5</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">825</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">27.4%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">6</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">417</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">13.9%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">7</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">134</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">4.5%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">8</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">60</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">2.0%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">9</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">16</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">0.5%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">10</td>
+<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
+<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">9</td>
+<td style="text-align: left; padding: 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">0.3%</td>
+<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAC4AAADEBAMAAAASSA7gAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfqCh4HLQCkGOYjAAAAkklEQVRYw+3WwQ2AIBQDUFZgBGAD3H83wWjEHxoDpoZDe3wHv2k96Bw/scS3OT1tW5bzHfXvbV482gfdd5+H5RRH/U/t2D6suXsky5mO+p/fsSR07tbIaY76/7RjTe9u/YzkFEf9z+4YjF935VxH/U/s2PVkfq/kHEf9D+8Y+p7kvzjqH+2FPMiXdD/oq72/nJ8dQh1TcZzRfHYAAAAASUVORK5CYII=" class="img-fluid figure-img" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sexo [factor]</td>
+<td style="text-align: left; padding: 8; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. Hombre</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. Mujer</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; padding: 0; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1309</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">43.5%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1701</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">56.5%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAFAAAAAsBAMAAAAA3yIkAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfqCh4HLQCkGOYjAAAAOklEQVQ4y2NgGBpACSdQFIQAqEJlY1xgVOGoQqopJDo9ChIEpCpUIggIegYKjEYVjiqkWCHR6XGwAwBLp8/qXaIHlwAAAABJRU5ErkJggg==" class="img-fluid figure-img" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Edad [numeric]</td>
+<td style="text-align: left; padding: 8; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">Media (d-s) : 45.09 (17.29)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">min ≤ mediana ≤ max:</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">18 ≤ 43 ≤ 94</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">RI (CV) : 27 (0.38)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; vertical-align: middle;">74 valores distintos</td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHwAAABaBAMAAACIxS+mAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfqCh4HLQCkGOYjAAAAsElEQVRYw+3W0RGEIAwEUFrQDuQ6MP33djKzMwcnCAn+aDb/DwXCQgi+a/mvNca4Ld1qchGx8uPLcYJ/RPbn8TTpCZ7cj2MwHT8MOAbTcThXfC3XTM1LR+6ad85sj3d+4Am8GVtjvLkHb+dIISu/al9wXMlWXnP38uprZZxXr1xycvILfs5rFT8fe3LyIV7GvZqXrU/uiGeZZeFZ75KTazgyy8rR+hM8tX72nrdU8F1f6CCC3vYSE98AAAAASUVORK5CYII=" class="img-fluid figure-img" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educación superior completa [factor]</td>
+<td style="text-align: left; padding: 8; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. No</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. Sí</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; padding: 0; vertical-align: middle;"><table class="cell caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">2414</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">80.2%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">596</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">19.8%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAG0AAAAsBAMAAACd0iusAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfqCh4HLQCkGOYjAAAAPUlEQVRIx2NgGP5AiUSgANWnbEwaGNU3qm9UH6Y+cvOfIIlAgEJ9yG4gRR9SuBiN6hvVN6qPPH3k5r/hDADj8vOiRGCjLQAAAABJRU5ErkJggg==" class="img-fluid figure-img" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+</tr>
+</tbody>
 </table>
-
 </div>
 </div>
 </div>
@@ -1650,18 +1015,26 @@ Casos completos (% de la ola)
 \operatorname{logit}\left[P(Y_i \le j)\right] = \alpha_j - \mathbf{x}_i'\boldsymbol{\beta}, \qquad j = 1, \dots, 4
 \]</span></p>
 <p>donde <span class="math inline">\(\alpha_j\)</span> son los umbrales entre categorías y <span class="math inline">\(\boldsymbol{\beta}\)</span> los coeficientes, que se asumen iguales para todos los umbrales. Con esta parametrización, un coeficiente positivo indica mayor probabilidad de responder en las categorías más altas (más cercanas a “muy justo”). Mantener las cinco categorías evita perder la información que se descarta al dicotomizar la variable.</p>
-<p>Los modelos se estimaron con diseño muestral complejo mediante el paquete <code>survey</code> <span class="citation" data-cites="lumley_2004">(<a href="referencias.html#ref-lumley_2004" role="doc-biblioref"><strong>lumley_2004?</strong></a>)</span> (función <code>svyolr</code>), sobre el diseño declarado en la <a href="#sec-diseno" class="quarto-xref"><span>Sección 3.1.3</span></a>. Los modelos se presentan de manera secuencial:</p>
+<p>Los modelos se estimaron con diseño muestral complejo mediante el paquete <code>survey</code> <span class="citation" data-cites="lumley_2004">(<a href="referencias.html#ref-lumley_2004" role="doc-biblioref">Lumley, 2004</a>)</span> (función <code>svyolr</code>), sobre el diseño declarado en la <a href="#sec-diseno" class="quarto-xref"><span>Sección 3.1.3</span></a>. Los modelos se presentan de manera secuencial:</p>
 <ol type="1">
 <li><strong>Modelo 1</strong>: posición socioeconómica (H1).</li>
 <li><strong>Modelo 2</strong>: percepción de meritocracia (H2).</li>
-<li><strong>Modelo 3</strong>: percepción de brecha salarial (H3).</li>
-<li><strong>Modelo 4</strong>: año de la encuesta (H4).</li>
-<li><strong>Modelo 5</strong>: las cuatro variables independientes, más las variables de control.</li>
-<li><strong>Modelo 6</strong>: el modelo 5 más la interacción entre la posición socioeconómica y la percepción de meritocracia (H5).</li>
+<li><strong>Modelo 3</strong>: posición socioeconómica, percepción de meritocracia y la interacción entre ambas (H3).</li>
+<li><strong>Modelo 4</strong>: percepción de brecha salarial (H4).</li>
+<li><strong>Modelo 5</strong>: año de la encuesta (H5).</li>
+<li><strong>Modelo 6</strong>: todas las variables anteriores, incluida la interacción, más las variables de control.</li>
 </ol>
-<p>Los modelos 1 a 4 no incluyen variables de control. Dado que en modelos logísticos ordinales los coeficientes de interacción no equivalen a efectos en la escala de probabilidades, la interacción se interpreta mediante efectos marginales promedio, calculados para cada categoría de respuesta.</p>
+<p>Los modelos 1 a 5 no incluyen variables de control. Dado que en modelos logísticos ordinales los coeficientes de interacción no equivalen a efectos en la escala de probabilidades, la interacción se interpreta mediante efectos marginales promedio, calculados para cada categoría de respuesta.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-lumley_2004" class="csl-entry" role="listitem">
+Lumley, T. (2004). Analysis of <span>Complex Survey Samples</span>. <em>Journal of Statistical Software</em>, <em>9</em>(8). <a href="https://doi.org/10.18637/jss.v009.i08">https://doi.org/10.18637/jss.v009.i08</a>
+</div>
+<div id="ref-publicos_2026" class="csl-entry" role="listitem">
+Públicos, C. de E. (2026). <em>Manual Del <span>Usuario Encuesta CEP</span>: <span>Base</span> de Datos Consolidada</em> [Manual del usuario]. Centro de Estudios Públicos.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
