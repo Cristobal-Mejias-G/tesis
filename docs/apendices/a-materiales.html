@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -193,8 +228,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenidos</h2>
+   
+  <ul>
+  <li><a href="#sec-complementario-perdidos" id="toc-sec-complementario-perdidos" class="nav-link active" data-scroll-target="#sec-complementario-perdidos"><span class="header-section-number">A.1</span> Casos perdidos por variable y ola</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -219,8 +260,608 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- Cuestionarios, tablas adicionales, chequeos de robustez. -->
+<section id="sec-complementario-perdidos" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="sec-complementario-perdidos"><span class="header-section-number">A.1</span> Casos perdidos por variable y ola</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Ver código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin_titulo</span>(tablas_met<span class="sc">$</span>perdidos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-perdidos" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-perdidos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;A.1: Casos perdidos por variable y año de la encuesta (base completa, sin ponderar)
+</figcaption>
+<div aria-describedby="tbl-perdidos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="hskdeqsuqk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hskdeqsuqk table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hskdeqsuqk thead, #hskdeqsuqk tbody, #hskdeqsuqk tfoot, #hskdeqsuqk tr, #hskdeqsuqk td, #hskdeqsuqk th {
+  border-style: none;
+}
+
+#hskdeqsuqk p {
+  margin: 0;
+  padding: 0;
+}
+
+#hskdeqsuqk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hskdeqsuqk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hskdeqsuqk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hskdeqsuqk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hskdeqsuqk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hskdeqsuqk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hskdeqsuqk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hskdeqsuqk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hskdeqsuqk .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hskdeqsuqk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hskdeqsuqk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hskdeqsuqk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hskdeqsuqk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hskdeqsuqk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hskdeqsuqk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hskdeqsuqk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hskdeqsuqk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hskdeqsuqk .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hskdeqsuqk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hskdeqsuqk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hskdeqsuqk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hskdeqsuqk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hskdeqsuqk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hskdeqsuqk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hskdeqsuqk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hskdeqsuqk .gt_left {
+  text-align: left;
+}
+
+#hskdeqsuqk .gt_center {
+  text-align: center;
+}
+
+#hskdeqsuqk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hskdeqsuqk .gt_font_normal {
+  font-weight: normal;
+}
+
+#hskdeqsuqk .gt_font_bold {
+  font-weight: bold;
+}
+
+#hskdeqsuqk .gt_font_italic {
+  font-style: italic;
+}
+
+#hskdeqsuqk .gt_super {
+  font-size: 65%;
+}
+
+#hskdeqsuqk .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hskdeqsuqk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hskdeqsuqk .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hskdeqsuqk .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hskdeqsuqk .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hskdeqsuqk .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hskdeqsuqk .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#hskdeqsuqk .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#hskdeqsuqk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th rowspan="2" id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th colspan="4" id="Casos perdidos (% de la ola)" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+Casos perdidos (% de la ola)
+</div></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="a1999" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1999</th>
+<th id="a2009" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2009</th>
+<th id="a2019" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2019</th>
+<th id="Total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Justicia de mercado en salud</td>
+<td class="gt_row gt_right" headers="1999">64 (4,3%)</td>
+<td class="gt_row gt_right" headers="2009">41 (2,7%)</td>
+<td class="gt_row gt_right" headers="2019">39 (2,8%)</td>
+<td class="gt_row gt_right" headers="Total">144 (3,3%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">Ingreso personal</td>
+<td class="gt_row gt_right" headers="1999">560 (37,3%)</td>
+<td class="gt_row gt_right" headers="2009">359 (23,9%)</td>
+<td class="gt_row gt_right" headers="2019">524 (38,0%)</td>
+<td class="gt_row gt_right" headers="Total">1.443 (32,9%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Ingreso per cápita del hogar</td>
+<td class="gt_row gt_right" headers="1999">213 (14,2%)</td>
+<td class="gt_row gt_right" headers="2009">319 (21,2%)</td>
+<td class="gt_row gt_right" headers="2019">530 (38,4%)</td>
+<td class="gt_row gt_right" headers="Total">1.062 (24,2%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">Ingreso: no reporta en ambas (categoría)</td>
+<td class="gt_row gt_right" headers="1999">184 (12,2%)</td>
+<td class="gt_row gt_right" headers="2009">249 (16,5%)</td>
+<td class="gt_row gt_right" headers="2019">497 (36,0%)</td>
+<td class="gt_row gt_right" headers="Total">930 (21,2%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Percepción de meritocracia (H2)</td>
+<td class="gt_row gt_right" headers="1999">38 (2,5%)</td>
+<td class="gt_row gt_right" headers="2009">16 (1,1%)</td>
+<td class="gt_row gt_right" headers="2019">12 (0,9%)</td>
+<td class="gt_row gt_right" headers="Total">66 (1,5%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">Ingreso percibido del presidente de empresa</td>
+<td class="gt_row gt_right" headers="1999">583 (38,8%)</td>
+<td class="gt_row gt_right" headers="2009">175 (11,6%)</td>
+<td class="gt_row gt_right" headers="2019">339 (24,6%)</td>
+<td class="gt_row gt_right" headers="Total">1.097 (25,0%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Ingreso percibido del obrero</td>
+<td class="gt_row gt_right" headers="1999">318 (21,2%)</td>
+<td class="gt_row gt_right" headers="2009">86 (5,7%)</td>
+<td class="gt_row gt_right" headers="2019">133 (9,6%)</td>
+<td class="gt_row gt_right" headers="Total">537 (12,2%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">Brecha salarial percibida (H3)</td>
+<td class="gt_row gt_right" headers="1999">612 (40,7%)</td>
+<td class="gt_row gt_right" headers="2009">200 (13,3%)</td>
+<td class="gt_row gt_right" headers="2019">363 (26,3%)</td>
+<td class="gt_row gt_right" headers="Total">1.175 (26,8%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Posición política</td>
+<td class="gt_row gt_right" headers="1999">90 (6,0%)</td>
+<td class="gt_row gt_right" headers="2009">61 (4,1%)</td>
+<td class="gt_row gt_right" headers="2019">71 (5,1%)</td>
+<td class="gt_row gt_right" headers="Total">222 (5,1%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">Estatus social subjetivo</td>
+<td class="gt_row gt_right" headers="1999">0 (0,0%)</td>
+<td class="gt_row gt_right" headers="2009">15 (1,0%)</td>
+<td class="gt_row gt_right" headers="2019">15 (1,1%)</td>
+<td class="gt_row gt_right" headers="Total">30 (0,7%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Sexo</td>
+<td class="gt_row gt_right" headers="1999">0 (0,0%)</td>
+<td class="gt_row gt_right" headers="2009">0 (0,0%)</td>
+<td class="gt_row gt_right" headers="2019">0 (0,0%)</td>
+<td class="gt_row gt_right" headers="Total">0 (0,0%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">Edad</td>
+<td class="gt_row gt_right" headers="1999">0 (0,0%)</td>
+<td class="gt_row gt_right" headers="2009">0 (0,0%)</td>
+<td class="gt_row gt_right" headers="2019">0 (0,0%)</td>
+<td class="gt_row gt_right" headers="Total">0 (0,0%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">Educación</td>
+<td class="gt_row gt_right" headers="1999">16 (1,1%)</td>
+<td class="gt_row gt_right" headers="2009">8 (0,5%)</td>
+<td class="gt_row gt_right" headers="2019">11 (0,8%)</td>
+<td class="gt_row gt_right" headers="Total">35 (0,8%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable" style="font-weight: bold">Casos completos (muestra analítica)</td>
+<td class="gt_row gt_right" headers="1999" style="font-weight: bold">837 (55,7%)</td>
+<td class="gt_row gt_right" headers="2009" style="font-weight: bold">1.220 (81,1%)</td>
+<td class="gt_row gt_right" headers="2019" style="font-weight: bold">953 (69,1%)</td>
+<td class="gt_row gt_right" headers="Total" style="font-weight: bold">3.010 (68,6%)</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="5" class="gt_sourcenote">Base completa sin ponderar (n = 4.388). Se cuenta como perdido el no sabe, el no contesta y los montos depurados. El ingreso personal de 1999 incluye a quienes declaran no tener ingresos (código 15). Los casos sin ingreso en ambas preguntas quedan en la categoría no reporta y no salen de la muestra analítica. La última fila muestra los casos completos (no perdidos) en todas las variables del modelo.</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
